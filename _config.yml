@@ -23,7 +23,7 @@ weibo_username:     Ky的Lin呀
 github_username:    KylinC
 #facebook_username:  baiying.qiu.7
 jianshu_username:   c9121038ec76
-#twitter_username:   qiubaiying
+twitter_username:   KylinChan11
 
 
 
@@ -56,7 +56,7 @@ kramdown:
 
 
 # 评论系统
-#Disqus（https://disqus.com/）
+Disqus（https://disqus.com/）
 disqus_username: KylinC
 
 # Gitalk
@@ -74,7 +74,7 @@ gitalk:
 
 # Analytics settings
 # Baidu Analytics
-#ba_track_id: b50bf2b12b5338a1845e33832976fd68
+ba_track_id: 7690a423f7829c09c567dc001ff14d0d
 
 # Google Analytics
 #ga_track_id: 'UA-90855596-1'            # Format: UA-xxxxxx-xx
