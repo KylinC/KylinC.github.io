@@ -2,15 +2,18 @@
 layout:     post
 title:      Hello World!
 subtitle:   From Bohemia.
-date:       2017-01-06
-author:     BY
-header-img: img/post-bg-ios9-web.jpg
+date:       2019-03-26
+author:     Kylin
+header-img: blog_1.jpg
 catalog: true
 tags:
     - Form Bohemia
     - Life
 
 ---
+
+
+>关于波希米亚的若干故事，从这里讲起。
 
 #Hello World!
 
