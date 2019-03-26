@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Gurobi/Anaconda Integrating For Ubuntu 18.04
+title:      Gurobi/Anaconda in Ubuntu 18.04
 subtitle:   Ubuntu18.04下，Gurobi/Anaconda Python环境的配置
 date:       2019-03-26
 author:     Kylin
