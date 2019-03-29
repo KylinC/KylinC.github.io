@@ -1,14 +1,15 @@
 ---
 layout:     post
-title:      Gurobi/Anaconda in Ubuntu 18.04
-subtitle:   Ubuntu18.04下，Gurobi/Anaconda Python环境的配置
-date:       2019-03-26
+title:      How to connecting campus network in Ubuntu 18.04
+subtitle:   Ubuntu18.04下，校园网WI-FI配置方式（以SJTU校园网为例）
+date:       2019-03-29
 author:     Kylin
-header-img: img/post-bg-ios10.jpg
+header-img: img/ubuntu.jpg
 catalog: true
 tags:
     - Ubuntu
-    - Gurobi
+    - Network Configuration
+   
 ---
 
 
