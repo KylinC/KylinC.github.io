@@ -12,7 +12,7 @@ tags:
    
 ---
 
-
+## How to Connecting Campus Network in Ubuntu
 ### 参数配置
 
 ```<?
