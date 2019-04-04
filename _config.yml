@@ -3,8 +3,8 @@ title: Kylin Ya!
 SEOTitle: KylinChen | Blog
 header-img: img/tag-bg-o.jpg
 email: k1017856853@icloud.com
-description: "Sophomore in Shanghai JioaTong University, as well a poet and musician."
-keyword: "Kylin, KylinChen, 陈麒麟的博客, SJTU, iOS, Apple, iPhone"
+description: "Sophomore CSer in Shanghai JioaTong University, as well a poet and musician."
+keyword: "Kylin, KylinChen, 陈麒麟的博客, SJTU"
 url: "http://KylinC.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/KylinC/KylinC.github.io.git" # you code repository
@@ -57,7 +57,7 @@ kramdown:
 
 # 评论系统
 #Disqus（https://disqus.com/）
-disqus_username: KylinC
+#disqus_username: kylinc
 
 # Gitalk
 gitalk:
