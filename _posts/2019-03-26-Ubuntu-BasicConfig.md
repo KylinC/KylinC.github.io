@@ -8,12 +8,13 @@ header-img: img/basic_config.jpg
 catalog: true
 tags:
     - Pycharm
-    - Ubuntu
+    - Ubuntu Driver
     - Gurobi
-    - drivers
+    - Pytorch
+    - Anaconda
 ---
 
-# Basic Configuration for Ubuntu 
+# Basic Configuration for Device  
 ## 显卡驱动更新/拓展屏幕配置
 
 显卡驱动更新
@@ -54,4 +55,18 @@ xrandr --output DVI-I-0 --right-of DP-3 --auto
 （位置关系参数：right-of ，left-of , below）
 
 
+# Configuration for Software
 
+## Anaconda 配置
+
+- 在 Anaconda 网站下载需要版本的 Linux 安装包
+
+（或者在清华大学开源软件镜像站下载）
+
+- 在 Terminal 中进入 Downloads 目录
+
+## Pytorch 配置
+
+## Pycharm-Anaconda 配置
+
+## Anaconda-Gurobi 配置
