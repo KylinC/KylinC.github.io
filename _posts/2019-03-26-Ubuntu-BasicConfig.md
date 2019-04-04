@@ -195,4 +195,65 @@ import gurobipy
 ```
 若无报错信息出现，则均证明配置成功
 
-## Pytorch 配置
+## Pytorch（GPU）配置
+
+### CUDA 与 CUDNN 安装
+
+- 查看显卡型号
+
+```<?
+ubuntu-drivers devices
+
+```
+ （ model之后的即是显卡型号 ）
+
+  在 [NAVIDIA官网](https://developer.nvidia.com/cuda-gpus) 核实是否支持GPU运算
+  
+- gcc 降级（确保 CUDA 支持，caffe 需 gcc 5.0+）
+
+```<?
+sudo apt-get install gcc-4.8
+sudo apt-get install g++-4.8
+
+```
+
+之后进入以下目录修改
+
+```<?
+/usr/bin
+
+ls -l gcc*
+```
+
+修改 gcc 链接
+
+```<?
+sudo mv gcc gcc.bak 
+sudo ln -s gcc-4.8 gcc 
+```
+
+对 g++ 进行同样的操作
+
+```<?
+ls -l g++*
+
+sudo mv g++ g++.bak
+sudo ln -s g++-4.8 g++
+```
+
+查看版本号核实
+
+```<?
+gcc --version
+
+g++ --version
+```
+
+- 安装 CUDA
+
+
+
+
+
+
+
