@@ -203,7 +203,6 @@ import gurobipy
 
 ```<?
 ubuntu-drivers devices
-
 ```
  （ model之后的即是显卡型号 ）
 
@@ -213,8 +212,8 @@ ubuntu-drivers devices
 
 ```<?
 sudo apt-get install gcc-4.8
-sudo apt-get install g++-4.8
 
+sudo apt-get install g++-4.8
 ```
 
 之后进入以下目录修改
@@ -251,6 +250,48 @@ g++ --version
 
 - 安装 CUDA
 
+在 Terminal 安装包目录下
+
+```<?
+sudo sh cuda_9.0.176_384.81_linux.run
+```
+
+按照以下命令执行
+
+```<?
+Do you accept the previously read EULA? (accept/decline/quit): accept You are attemptingto install on an unsupported configuration. Do you wish to continue? ((y)es/(n)o) [ default is no ]: y 
+Install NVIDIA Accelerated Graphics Driver for Linux-x86_64 352.39? ((y)es/(n)o/(q)uit): n 
+Install the CUDA 8.0 Toolkit? ((y)es/(n)o/(q)uit): y 
+Enter Toolkit Location [ default is /usr/local/cuda-8.0 ]: 
+Do you want to install a symbolic link at /usr/local/cuda? ((y)es/(n)o/(q)uit): y Install the CUDA 8.0 Samples? ((y)es/(n)o/(q)uit): y Enter CUDA Samples Location [ default is /home/kyle ]:
+```
+配置环境变量
+
+```<?
+sudo gedit ~/.bashrc
+```
+
+在文件尾插入
+
+```<?
+export PATH="/usr/local/cuda-9.0/bin:$PATH" 
+export LD_LIBRARY_PATH="/usr/local/cuda-9.0/lib64:$LD_LIBRARY_PATH"
+```
+测试
+
+>Terminal 输入
+
+```<?
+nvcc -V
+```
+>Terminal 返回
+
+```<?
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2017 NVIDIA Corporation
+Built on Fri_Sep__1_21:08:03_CDT_2017
+Cuda compilation tools, release 9.0, V9.0.176
+```
 
 
 
