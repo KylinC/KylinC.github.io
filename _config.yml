@@ -104,5 +104,8 @@ friends: [
     },{
         title: "Google",
         href: "https://www.google.com.hk/"
+    },{
+        title: "GitHub",
+        href: "https://github.com/"
     }
 ]
