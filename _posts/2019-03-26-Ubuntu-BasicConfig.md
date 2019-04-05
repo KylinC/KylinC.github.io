@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Basic Configuration for Ubuntu 
-subtitle:   Ubuntu18.04基本配置
+subtitle:   Ubuntu18.04几种常见环境的配置
 date:       2019-04-03
 author:     Kylin
 header-img: img/basic_config.jpg
@@ -78,7 +78,7 @@ bash Anaconda3-xxxx.sh
 
 ```<?
 sudo gedit ~/.bashrc
-export PATH="/home/xupp/anaconda3/bin:$PATH"
+export PATH="/home/kylin/anaconda3/bin:$PATH"
 ```
 
 - 非reboot生效
@@ -219,7 +219,7 @@ sudo apt-get install g++-4.8
 之后进入以下目录修改
 
 ```<?
-/usr/bin
+cd /usr/bin
 
 ls -l gcc*
 ```
@@ -256,14 +256,16 @@ g++ --version
 sudo sh cuda_9.0.176_384.81_linux.run
 ```
 
-按照以下命令执行
+按照以下命令执行 (只有 Nvidia 驱动无需更新)
 
 ```<?
-Do you accept the previously read EULA? (accept/decline/quit): accept You are attemptingto install on an unsupported configuration. Do you wish to continue? ((y)es/(n)o) [ default is no ]: y 
+Do you accept the previously read EULA? (accept/decline/quit): accept 
+You are attemptingto install on an unsupported configuration. Do you wish to continue? ((y)es/(n)o) [ default is no ]: y 
 Install NVIDIA Accelerated Graphics Driver for Linux-x86_64 352.39? ((y)es/(n)o/(q)uit): n 
 Install the CUDA 8.0 Toolkit? ((y)es/(n)o/(q)uit): y 
 Enter Toolkit Location [ default is /usr/local/cuda-8.0 ]: 
-Do you want to install a symbolic link at /usr/local/cuda? ((y)es/(n)o/(q)uit): y Install the CUDA 8.0 Samples? ((y)es/(n)o/(q)uit): y Enter CUDA Samples Location [ default is /home/kyle ]:
+Do you want to install a symbolic link at /usr/local/cuda? ((y)es/(n)o/(q)uit): y
+Install the CUDA 8.0 Samples? ((y)es/(n)o/(q)uit): y Enter CUDA Samples Location [ default is /home/kyle ]:
 ```
 配置环境变量
 
@@ -277,6 +279,13 @@ sudo gedit ~/.bashrc
 export PATH="/usr/local/cuda-9.0/bin:$PATH" 
 export LD_LIBRARY_PATH="/usr/local/cuda-9.0/lib64:$LD_LIBRARY_PATH"
 ```
+
+环境变量非reboot应用
+
+```<?
+source ~/.bashrc
+```
+
 测试
 
 >Terminal 输入
@@ -284,7 +293,7 @@ export LD_LIBRARY_PATH="/usr/local/cuda-9.0/lib64:$LD_LIBRARY_PATH"
 ```<?
 nvcc -V
 ```
->Terminal 返回
+>Terminal 正常返回
 
 ```<?
 nvcc: NVIDIA (R) Cuda compiler driver
@@ -293,8 +302,45 @@ Built on Fri_Sep__1_21:08:03_CDT_2017
 Cuda compilation tools, release 9.0, V9.0.176
 ```
 
+主目录下进入 Sample 测试
 
+>进入 sample 目录
 
+```<?
+cd NVIDIA_CUDA-9.0_Samples/0_Simple/vectorAdd
+```
 
+>编译
+
+```<?
+make
+```
+>编译正常返回
+
+```<?
+"/usr/local/cuda-9.0"/bin/nvcc -ccbin g++ -I../../common/inc  -m64    -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_37,code=sm_37 -gencode arch=compute_50,code=sm_50 -gencode arch=compute_52,code=sm_52 -gencode arch=compute_60,code=sm_60 -gencode arch=compute_70,code=sm_70 -gencode arch=compute_70,code=compute_70 -o vectorAdd.o -c vectorAdd.cu
+"/usr/local/cuda-9.0"/bin/nvcc -ccbin g++   -m64      -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_37,code=sm_37 -gencode arch=compute_50,code=sm_50 -gencode arch=compute_52,code=sm_52 -gencode arch=compute_60,code=sm_60 -gencode arch=compute_70,code=sm_70 -gencode arch=compute_70,code=compute_70 -o vectorAdd vectorAdd.o 
+mkdir -p ../../bin/x86_64/linux/release
+cp vectorAdd ../../bin/x86_64/linux/release
+```
+
+>执行
+
+```<?
+./vectorAdd
+```
+
+>执行正常返回
+
+```<?
+[Vector addition of 50000 elements]
+Copy input data from the host memory to the CUDA device
+CUDA kernel launch with 196 blocks of 256 threads
+Copy output data from the CUDA device to the host memory
+Test PASSED
+Done
+```
+
+- 安装 CUDNN
 
 
