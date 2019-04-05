@@ -171,7 +171,7 @@ gurobi.sh
  在 Anaconda 中，只需要安装 gurobipy 包即可完成在 anaconda-python中使用 gurobi
  
 ```<?
-conda config --add channelshttp://conda.anaconda.org/gurobi
+conda config --add channels http://conda.anaconda.org/gurobi
 
 conda install gurobi
 ```
@@ -342,5 +342,99 @@ Done
 ```
 
 - 安装 CUDNN
+
+进入 CUDNN 解压包目录 cuda
+
+```<?
+cd cuda
+```
+
+执行以下命令完成 CUDNN 安装
+
+```<?
+sudo cp lib64/* /usr/local/cuda/lib64/
+sudo cp include/* /usr/local/cuda/include/
+sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
+```
+
+- 安装 Pytorch
+
+进入安装包所在目录（未解压）
+
+```<?
+pip install torch-0.3.0.post4-cp36-cp36m-linux_x86_64.whl 
+```
+
+>成功则会返回
+
+```<?
+Successfully installed torch-0.3.0.post4
+```
+
+再执行
+
+```<?
+pip install torchvision
+```
+
+>成功则会返回
+
+```<?
+Installing collected packages: torchvision
+Successfully installed torchvision-0.2.2.post3
+```
+
+- Pytorch 测试
+
+>Terminal 测试
+
+```<?
+python
+>>import torch
+>>
+```
+（无报错则成功）
+
+>pycharm 测试
+
+新建项目添加 pytorch_test.py 文件加入以下内容
+
+```<?
+import torch as t
+x = t.rand(5,3)
+y = t.rand(5,3)
+if t.cuda.is_available():
+    x = x.cuda()
+    y = y.cuda()
+    print(x+y)
+```
+
+若返回以下内容则安装成功
+
+```<?
+/home/kylin/anaconda3/bin/python /home/kylin/PycharmProjects/torch_test/test.py
+
+ 0.7126  1.1742  0.6479
+ 1.1892  0.7152  1.1412
+ 1.1193  1.2094  1.5306
+ 1.1129  1.2118  1.1972
+ 0.9273  1.0505  0.7236
+[torch.cuda.FloatTensor of size 5x3 (GPU 0)]
+
+Process finished with exit code 0
+
+```
+
+- 最后附上我使用的 [CUDA/CUDNN/Pytorch安装包](https://pan.baidu.com/s/1ennvO6_G38ugSEveOk_HdA) 。
+
+测试机型是 Thinkstation-P500，显卡为 Quadro K2200， 可自行在 Nvidia 显卡支持上下载需要的 CUDA 及对应 CUDNN 版本。
+
+
+
+
+
+
+
+
 
 
