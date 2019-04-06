@@ -346,7 +346,7 @@ sudo apt-get update
 sudo apt-get upgrade
 ```
 
-- **安装软件**
+- **从网络安装软件**
 
 ```<?
 sudo apt-get install zip
@@ -355,6 +355,25 @@ sudo apt-get install unzip
 或者
 ```<?
 sudo apt-get install zip unzip
+```
+
+- **从本地安装软件**
+
+>xxx.sh 文件安装
+ 
+```<?
+bash xxx.sh
+```
+或者直接运行
+
+```<?
+./ xxx.sh
+```
+
+>xxx.whl 文件安装
+
+```<?
+pip install xxx.whl
 ```
 
 - **卸载软件**

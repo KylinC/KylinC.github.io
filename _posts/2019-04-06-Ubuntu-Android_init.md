@@ -157,14 +157,14 @@ List of devices attached
 
 ## HelloWorld 文件编写
 
-###File structure:
+### File structure:
 - hello 
  - jni
      - hello.c 
      - hello.h 
      - Android.mk
 
-###File contains:
+### File contains:
 - hello.c
 
 ```<?
