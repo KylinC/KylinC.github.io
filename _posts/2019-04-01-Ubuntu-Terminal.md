@@ -218,6 +218,36 @@ myblog/ mypage/
 kylin@Thinkstation:~$ cd myblog/
 ```
 
+## 环境变量
+
+>用于路径缺省的调用
+
+- **打开配置文件**
+
+ ```<?
+sudo gedit ~/.bashrc
+```
+ ```<?
+/etc/profile
+```
+
+-**添加形式**
+（最好写上#注释以便将来修改）
+
+```<?
+export PATH=#l absolute path you want#:$PATH
+```
+
+```<?
+export PATH="#l absolute path you want#:$PATH"
+```
+
+- **bashrc Missing 的解决方案**
+
+```<?
+export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
+```
+
 ## 归档命令
 
 - **ZIP压缩文件**
