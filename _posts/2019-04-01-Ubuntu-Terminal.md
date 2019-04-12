@@ -83,6 +83,7 @@ kylin@Thinkstation:~/_includes$ cd ~/.
 kylin@Thinkstation:~$ 
 ```
 
+**cd .. 回到上一目录**
 
 - **mkdir 新建工作目录（文件夹）**
 
@@ -186,6 +187,8 @@ b.txt
 
 格式：cp -ir source destination
 
+> ./表示当前目录
+
 - **rm 删除文件**
 
 格式：rm filename
@@ -243,9 +246,17 @@ export PATH="#l absolute path you want#:$PATH"
 ```
 
 - **bashrc Missing 的解决方案**
+(command not found)
 
 ```<?
 export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
+```
+
+- **bashrc 重置**
+（从备份处拷贝以初始化文件）
+
+```<?
+cp /etc/skel/.bashrc ~
 ```
 
 ## 归档命令
@@ -394,6 +405,45 @@ sudo apt-get install -f
 ```<?
 sudo dpkg -i filename.deb
 ```
+
+## 快捷键
+
+- 自动补齐
+
+>TAB
+
+- 切换相邻历史记录
+
+>上（Ctrl+p）下键（Ctrl+n）
+
+- 显示命令历史列表
+
+>history
+
+- 关键字检索
+
+>Ctrl+r
+>再次按Ctrl+r则向上检索
+
+- 清屏
+
+>Ctrl+l 
+
+- 剪切命令行中光标所在处之前的所有字符（不包括自身）
+
+>Ctrl+u
+
+- 粘贴刚才所删除的字符
+
+>Ctrl+y
+
+- 移动到当前行的开头
+
+>Ctrl+a
+
+- 移动到当前行的结尾
+
+>Ctrl+e
 
 ## VIM 编辑器
 
