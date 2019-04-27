@@ -5,8 +5,8 @@ header-img: img/tag-bg-o.jpg
 email: k1017856853@icloud.com
 description: "Sophomore CSer in Shanghai JioaTong University, as well a poet and musician."
 keyword: "Kylin, KylinChen, 陈麒麟的博客, SJTU"
-url: "http://KylinC.github.io"         
-baseurl: ""     
+url: "" #"http://KylinC.github.io"         
+baseurl: ""  #""     
 github_repo: "https://github.com/KylinC/KylinC.github.io.git" 
 
 # Sidebar settings
