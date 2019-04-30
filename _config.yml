@@ -1,7 +1,7 @@
 # Site settings
 title: Kylin Ya!
 SEOTitle: KylinChen | Blog
-header-img: img/tag-bg-o.jpg
+header-img: img/bg-landscape.jpg
 email: k1017856853@icloud.com
 description: "Sophomore CSer in Shanghai JioaTong University, as well a poet and musician."
 keyword: "Kylin, KylinChen, 陈麒麟的博客, SJTU"
@@ -39,7 +39,7 @@ anchorjs: true                          # if you want to customize anchor. check
 
 # Gems
 # from PR#40, to support local preview for Jekyll 3.0
-gems: [jekyll-paginate]
+plugins: [jekyll-paginate]
 
 
 
@@ -109,3 +109,4 @@ friends: [
         href: "https://github.com/"
     }
 ]
+
