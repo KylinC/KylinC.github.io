@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      Build a Picture Host with iPic/QiNiu Cloud
-subtitle:   用iPic/七牛云配置图床解决微博图床框架不兼容问题
+title:      Build a Picture Host with iPic/QiNiu/ALi Cloud
+subtitle:   用 iPic/七牛云/阿里云 配置图床解决微博图床框架不兼容问题
 date:       2019-04-29
 author:     Kylin
 header-img: img/post-qiniu.png
@@ -13,7 +13,7 @@ tags:
    
 ---
 
-# Build a Picture Host with iPic/QiNiu Cloud
+# Build a Picture Host with iPic/QiNiu/ALi Cloud
 
 ## 关于图床
 
@@ -80,12 +80,13 @@ tags:
   - 需要备案域名、虚拟主机进行CND配置，否则30天以后无法使用。（备案可能带来支出）
 
 ### SM.MS
-  
+
 官网地址：[https://sm.ms](https://sm.ms)
 
 ![](http://kylinhub.oss-cn-shanghai.aliyuncs.com/2019-04-30-smms.png)
 
 - 优点：
+  
   - 使用简便，免费。
 - 缺点：
   - 单张图片最大限制 5 M
