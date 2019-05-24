@@ -165,11 +165,7 @@ tags:
 
 ![](http://kylinhub.oss-cn-shanghai.aliyuncs.com/2019-04-30-yuming.jpg)
 
-## 唱不了一首欢乐的歌
 
-![](http://kylinhub.oss-cn-shanghai.aliyuncs.com/2019-04-30-love_song.jpg)
-
-> 这首歌的 ukulele 版超棒！
 
 
 
