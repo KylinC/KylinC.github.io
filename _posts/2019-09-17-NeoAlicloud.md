@@ -1,7 +1,7 @@
 ---
 dlayout:     post
-title:      在阿里云服务器上部署Neo4j
-subtitle:   Install Neo4j server on AliCloud
+title:      Install Neo4j server on AliCloud
+subtitle:   在阿里云服务器上部署Neo4j
 date:       2019-09-17
 author:     Kylin
 header-img: img/bg-neo4j.jpg
@@ -15,7 +15,7 @@ tags:
 
 
 
-# 在阿里云服务器上部署Neo4j
+# Install Neo4j server on AliCloud
 
 
 

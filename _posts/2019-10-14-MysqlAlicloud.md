@@ -1,7 +1,7 @@
 ---
 dlayout:     post
-title:      远程连接阿里云MySQL失败解决办法
-subtitle:   Solutions to issues of Mysql connection on AliCloud
+title:      File to Enter AliCloud MySQL
+subtitle:   远程连接阿里云MySQL失败解决办法
 date:       2019-10-14
 author:     Kylin
 header-img: img/bg-mysql.jpg
@@ -15,7 +15,9 @@ tags:
 
 
 
-# 远程连接阿里云MySQL失败解决办法
+# File to Enter AliCloud MySQL
+
+
 
 - 服务端Mysql安装
 
