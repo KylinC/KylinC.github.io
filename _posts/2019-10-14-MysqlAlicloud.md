@@ -1,6 +1,6 @@
 ---
 dlayout:     post
-title:      File to Enter AliCloud MySQL
+title:      Fail to Enter AliCloud MySQL
 subtitle:   远程连接阿里云MySQL失败解决办法
 date:       2019-10-14
 author:     Kylin
@@ -15,7 +15,7 @@ tags:
 
 
 
-# File to Enter AliCloud MySQL
+# Fail to Enter AliCloud MySQL
 
 
 
