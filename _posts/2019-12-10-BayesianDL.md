@@ -1,6 +1,6 @@
 ---
 dlayout:     post
-title:      Basic Operations in MySQL
+title:      Introduction to Bayesian Deep Learning
 subtitle:   MySQL数据库操作方式
 date:       2019-12-8
 author:     Kylin
