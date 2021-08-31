@@ -11,14 +11,14 @@ github_repo: "https://github.com/KylinC/KylinC.github.io.git"
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "Sophomore in Shanghai JiaoTong University."
-sidebar-avatar: /img/avator_new.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "Unemployed youth from Shanghai JiaoTong University."
+sidebar-avatar: /img/avatar_xizang.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
 # SNS settings
 RSS: false
-weibo_username:     NilyK的猫
+weibo_username:     NilyK
 #zhihu_username:     
 github_username:    KylinC
 facebook_username:  Kylin Chen
@@ -78,7 +78,7 @@ ba_track_id: 7690a423f7829c09c567dc001ff14d0d
 
 # Google Analytics
 ga_track_id: 'UA-136749660-1'            # Format: UA-xxxxxx-xx
-ga_domain: kylinchen.top               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
+ga_domain: kylinchen.cn               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
 
 
 
