@@ -1,29 +1,29 @@
 # Site settings
-title: Kylin Ya!
+title: Kylin Page
 SEOTitle: KylinChen | Blog
-header-img: img/bg-SOLO.jpg
-email: k1017856853@icloud.com
-description: "Sophomore CSer in Shanghai JiaoTong University, as well a poet and musician."
-keyword: "Kylin, KylinChen, 陈麒麟的博客, SJTU"
+header-img: img/bg-landscape.jpg
+email: qilin_chan@icloud.com
+description: "Master degree candidate in THU"
+keyword: "Kylin, QilinChen, Qilin, KylinChen, 陈麒麟的博客, SJTU"
 url: "http://KylinC.github.io"         
 baseurl: ""     
 github_repo: "https://github.com/KylinC/KylinC.github.io.git" 
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "Unemployed youth from Shanghai JiaoTong University."
+sidebar-about-description: "Master degree candidate in THU, interested in mobile computing and wireless sensors."
 sidebar-avatar: /img/avatar_xizang.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
 # SNS settings
 RSS: false
-weibo_username:     NilyK
+# weibo_username:     NilyK
 #zhihu_username:     
 github_username:    KylinC
 facebook_username:  Kylin Chen
 # jianshu_username:   是Kylin吖
-twitter_username:   KylinChan11
+# twitter_username:   
 
 
 
@@ -98,6 +98,10 @@ service-worker: true
 
 # Friends
 friends: [
+    {
+        title: "Tsinghua",
+        href: "https://www.tsinghua.edu.cn"
+    },
     {
         title: "SJTU",
         href: "https://www.sjtu.edu.cn/"
