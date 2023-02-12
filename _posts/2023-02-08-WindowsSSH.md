@@ -4,7 +4,7 @@ title:      通过SSH连接Windows
 subtitle:   通过SSH远程访问Windows服务器
 date:       2023-02-08
 author:     Kylin
-header-img: img/bg-ssh.jpg
+header-img: img/post-cache.jpg
 catalog: true
 tags:
     - SSH
