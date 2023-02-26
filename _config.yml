@@ -62,8 +62,8 @@ kramdown:
 # Gitalk
 gitalk:
   enable: true    #是否开启Gitalk评论
-  clientID: 08929d1f8351f52a1fc7                        #生成的clientID
-  clientSecret: fc96e817032b3365d1ada660b4b293bc7bc2b1a3   #生成的clientSecret
+  clientID: a5dd585f0e91f2a22def                        #生成的clientID
+  clientSecret: c4c0aa13dedb0aec137949f3c8daea74b8bada9c   #生成的clientSecret
   repo:  KylinC.github.io    #仓库名称
   owner: KylinC    #github用户名
   admin: KylinC
@@ -106,8 +106,8 @@ friends: [
         title: "SJTU",
         href: "https://www.sjtu.edu.cn/"
     },{
-        title: "Google",
-        href: "https://www.google.com.hk/"
+        title: "HomePage",
+        href: "https://kylinchen.cn/profile/"
     },{
         title: "GitHub",
         href: "https://github.com/"
