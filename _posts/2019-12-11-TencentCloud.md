@@ -8,7 +8,6 @@ header-img: img/Tcloud.jpg
 catalog: true
 tags:
     - Cloud
-    - TencentCloud
 
 ---
 

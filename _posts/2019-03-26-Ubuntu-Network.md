@@ -7,8 +7,7 @@ author:     Kylin
 header-img: img/ubuntu.jpg
 catalog: true
 tags:
-    - Ubuntu
-    - Network Configuration
+    - Linux
    
 ---
 
@@ -24,5 +23,4 @@ PEAP 版本：     自动
 用户名：         JAccount账号
 密码：           JAccount密码
 ```
-
 

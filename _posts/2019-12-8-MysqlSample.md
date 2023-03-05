@@ -7,7 +7,6 @@ author:     Kylin
 header-img: img/bg-database.jpg
 catalog: true
 tags:
-    - MySQL
     - Database
 ---
 

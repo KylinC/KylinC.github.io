@@ -7,8 +7,7 @@ author:     Kylin
 header-img: img/bg-neo4j.jpg
 catalog: true
 tags:
-    - AliCloud
-    - Neo4j
+    - Cloud
     - Database
 
 ---

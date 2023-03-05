@@ -8,8 +8,6 @@ header-img: img/post-qiniu.png
 catalog: true
 tags:
     - Cloud
-    - Picture Host
-    - AliCloud
    
 ---
 
@@ -164,7 +162,6 @@ tags:
 - 网址前缀： 填写 Bucket外网访问域名即可
 
 ![](http://kylinhub.oss-cn-shanghai.aliyuncs.com/2019-04-30-yuming.jpg)
-
 
 
 

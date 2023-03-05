@@ -7,9 +7,7 @@ author:     Kylin
 header-img: img/post-bg-terminal.jpg
 catalog: true
 tags:
-    - Ubuntu
     - Linux
-    - Terminal
    
 ---
 
@@ -229,10 +227,10 @@ kylin@Thinkstation:~$ cd myblog/
 
  ```<?
 sudo gedit ~/.bashrc
-```
+ ```
  ```<?
 /etc/profile
-```
+ ```
 
 -**添加形式**
 （最好写上#注释以便将来修改）
@@ -371,7 +369,7 @@ sudo apt-get install zip unzip
 - **从本地安装软件**
 
 >xxx.sh 文件安装
- 
+
 ```<?
 bash xxx.sh
 ```
@@ -507,5 +505,4 @@ Gedit 是Ubuntu中的图形化编辑器。除此之外，还有atom与sublime推
 ```<?
 kylin@Thinkstation:~/unity$ Gedit
 ```
-
 
