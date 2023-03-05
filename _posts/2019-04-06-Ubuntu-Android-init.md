@@ -7,8 +7,7 @@ author:     Kylin
 header-img: img/post-android.jpg
 catalog: true
 tags:
-    - Ubuntu
-    - Android
+    - Linux
    
 ---
 
@@ -19,12 +18,12 @@ tags:
 - **基本所需环境**
 
  JDK，Android SDK，NDK
- 
+
 - **可选环境**
 
  Android Studio
- 
- 
+
+
 ### JDK 安装
 
 - 在压缩包目录下解压
@@ -159,7 +158,7 @@ ndk-build -v
 - 检查 SDK 地址
 
  \#your sdk location\#/platform-tools/
- 
+
 - 如上添加环境变量并应用
 
 ```<?
@@ -191,19 +190,35 @@ List of devices attached
 - hello.c
 
 ```<?
-#include "hello.h"int main(int argc, char *argv[]){	printf("Hello World!\n");	return 0;}
+#include "hello.h"
+int main(int argc, char *argv[]){
+	printf("Hello World!\n");
+	return 0;
+}
 ```
 
 - hello.h
 
 ```<?
-#ifndef HELLOHEADER_H_#define HELLOHEADER_H_#include <stdio.h>#endif /*HELLOHEADER_H_*/
+#ifndef HELLOHEADER_H_
+#define HELLOHEADER_H_
+#include <stdio.h>
+#endif /*HELLOHEADER_H_*/
 ```
 
 - Android.mk
 
 ```<?
-LOCAL_PATH := $(call my-dir)include $(CLEAR_VARS)LOCAL_SRC_FILES := hello.c				# your source code	LOCAL_MODULE := helloARM				# output file nameLOCAL_CFLAGS += -pie -fPIE	 			# These two line mustn’t be LOCAL_LDFLAGS += -pie -fPIE			# change.LOCAL_FORCE_STATIC_EXECUTABLE := trueinclude $(BUILD_EXECUTABLE)
+LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := hello.c				# your source code	
+LOCAL_MODULE := helloARM				# output file name
+LOCAL_CFLAGS += -pie -fPIE	 			# These two line mustn’t be 
+LOCAL_LDFLAGS += -pie -fPIE			# change.
+LOCAL_FORCE_STATIC_EXECUTABLE := true
+
+include $(BUILD_EXECUTABLE)
 ```
 
 ## HelloWorld 编译与Push
@@ -332,10 +347,13 @@ lsmod *.ko            #list mod
 
 1、Remove mod:
 
-```<?  rmmod *.ko
+```<?
+  rmmod *.ko
 ```
 2、List mod:
- ```<?  lsmod
+
+```<?
+  lsmod
 ```
 3、Delete you .ko file before you want to update it.
 
@@ -353,7 +371,8 @@ adb shell
 >在 /data/misc 文件目录下使可执行
 
 ```<?
-chmod +x helloARMchmod 777 helloARM
+chmod +x helloARM
+chmod 777 helloARM
 ```
 
 >执行

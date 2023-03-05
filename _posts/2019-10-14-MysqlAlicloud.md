@@ -7,9 +7,7 @@ author:     Kylin
 header-img: img/bg-mysql.jpg
 catalog: true
 tags:
-    - AliCloud
-    - Neo4j
-    - Database
+    - Cloud
 
 ---
 

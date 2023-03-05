@@ -7,8 +7,7 @@ author:     Kylin
 header-img: img/MySQL-OpenShift.jpg
 catalog: true
 tags:
-    - MySQL
-    - Database
+    - machine learning
 
 ---
 

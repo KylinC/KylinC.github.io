@@ -7,11 +7,7 @@ author:     Kylin
 header-img: img/basic_config.jpg
 catalog: true
 tags:
-    - Pycharm
-    - Ubuntu Driver
-    - Gurobi
-    - Pytorch
-    - Anaconda
+    - Linux
 ---
 
 # Basic Configuration for Device  
@@ -129,7 +125,7 @@ sh ./clion.sh
      进入 [Gurobi官网](http://www.gurobi.com/) 下载安装包
 
  - Academic 用户可以申请为期一年的密匙 xxxxxxxxxx 字符码用于联网激活
- 
+
 - 进入Downloads提取文件
 
 ```<?
@@ -153,7 +149,7 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib
 ```<?
 ./gurobi811/linux64/bin/grbgetkey xxxxxxx
 ```
- 
+
 - 环境变量非reboot生效
 
 ```<?
@@ -169,7 +165,7 @@ gurobi.sh
 - Anaconda 配置
 
  在 Anaconda 中，只需要安装 gurobipy 包即可完成在 anaconda-python中使用 gurobi
- 
+
 ```<?
 conda config --add channels http://conda.anaconda.org/gurobi
 
@@ -207,7 +203,7 @@ ubuntu-drivers devices
  （ model之后的即是显卡型号 ）
 
   在 [NAVIDIA官网](https://developer.nvidia.com/cuda-gpus) 核实是否支持GPU运算
-  
+
 - gcc 降级（确保 CUDA 支持，caffe 需 gcc 5.0+）
 
 ```<?
@@ -428,7 +424,6 @@ Process finished with exit code 0
 - 最后附上我使用的 [CUDA/CUDNN/Pytorch安装包](https://pan.baidu.com/s/1ennvO6_G38ugSEveOk_HdA) 。
 
 测试机型是 Thinkstation-P500，显卡为 Quadro K2200， 可自行在 Nvidia 显卡支持上下载需要的 CUDA 及对应 CUDNN 版本。
-
 
 
 
