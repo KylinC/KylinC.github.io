@@ -1,8 +1,8 @@
 ---
 dlayout:    post
-title:      A Intro to Quantitative Trading: Time Series Analysis
-subtitle:   Time Series Analysis
-date:       2023-2-28
+title:      A Cheatshit for SLAM
+subtitle:   All about SLAM 
+date:       2023-3-02
 author:     Kylin
 header-img: img/bg-quantitive-trading-intro.jpg
 catalog: true
@@ -14,9 +14,11 @@ tags:
 
 [TOC]
 
+## A Cheatshit for SLAM
 
 
-### Intro to SLAM
+
+### SLAM简介
 
 SLAM是Simultaneous Localization and Mapping的缩写，中文译作“同时定位与地图构建”山。它是指搭载特定传感器的主体，**在没有环境先验信息的情况下，于运动过程中建立环境的模型，同时估计自己的运动**。如果这里的传感器主要为相机，那就称为“视觉SLAM”。
 
@@ -337,7 +339,7 @@ s \boldsymbol{R} & \boldsymbol{t} \\
 0^{\mathrm{T}} & 1
 \end{array}\right]
 $$
-注意, 旋转部分多了一个缩放因子 $s$, 表示我们在对向量旋转之后, 可以在 $x, y, z$ 三个坐 标上进行均匀缩放。由于含有缩放, 相似变换不再保持图形的面积不变。你可以想象一 个边长为 1 的立方体通过相似变换后, 变成边长为 10 的样子 (但仍然是立方体)。三维 相似变换的集合也叫作相似变换群, 记作 $\operatorname{Sim}(3)$ 。
+注意, 旋转部分多了一个缩放因子 $s$, 表示我们在对向量旋转之后, 可以在 $x, y, z$ 三个坐 标上进行均匀缩放。由于含有缩放, 相似变换不再保持图形的面积不变。你可以想象一 个边长为 1 的立方体通过相似变换后, 变成边长为 10 的样子 (但仍然是立方体)。三维相似变换的集合也叫作相似变换群, 记作 $\operatorname{Sim}(3)$ 。
 2. 仿射变换
 仿射变换的矩阵形式如下:
 $$
@@ -346,7 +348,7 @@ A & \boldsymbol{t} \\
 \mathbf{0}^{\mathrm{T}} & 1
 \end{array}\right]
 $$
-与欧氏变换不同的是, 仿射变换只要求 $\boldsymbol{A}$ 是一个可逆矩阵, 而不必是正交矩阵。仿射变 换也叫正交投影。经过仿射变换之后, 立方体就不再是方的了, 但是各个面仍然是平行 四边形。
+与欧氏变换不同的是, 仿射变换只要求 $\boldsymbol{A}$ 是一个可逆矩阵, 而不必是正交矩阵。仿射变换也叫正交投影。经过仿射变换之后, 立方体就不再是方的了, 但是各个面仍然是平行四边形。
 3. 射影变换
 射影变换是最一般的变换, 它的矩阵形式为
 $$
@@ -398,6 +400,178 @@ $$
 
 
 #### 李代数
+
+李代数由一个集合$\mathbb{V}$，一个数域$\mathbb{F}$，和一个二元运算符$[,]$（李括号）组成，称 $(\mathbb{V}, \mathbb{F},[,]$,$) 为一个李代数, 记作 \mathfrak{g}$ 。
+1. 封闭性 $\forall \boldsymbol{X}, \boldsymbol{Y} \in \mathbb{V},[\boldsymbol{X}, \boldsymbol{Y}] \in \mathbb{V}$.
+2. 双线性 $\forall \boldsymbol{X}, \boldsymbol{Y}, \boldsymbol{Z} \in \mathbb{V}, a, b \in \mathbb{F}$, 有
+$$
+[a \boldsymbol{X}+b \boldsymbol{Y}, \boldsymbol{Z}]=a[\boldsymbol{X}, \boldsymbol{Z}]+b[\boldsymbol{Y}, \boldsymbol{Z}], \quad[\boldsymbol{Z}, a \boldsymbol{X}+b \boldsymbol{Y}]=a[\boldsymbol{Z}, \boldsymbol{X}]+b[\boldsymbol{Z}, \boldsymbol{Y}]
+$$
+3. 自反性 ${ }^{(2)} \forall \boldsymbol{X} \in \mathbb{V},[\boldsymbol{X}, \boldsymbol{X}]=0$.
+4. 雅可比等价 $\forall \boldsymbol{X}, \boldsymbol{Y}, \boldsymbol{Z} \in \mathbb{V},[\boldsymbol{X},[\boldsymbol{Y}, \boldsymbol{Z}]]+[\boldsymbol{Z},[\boldsymbol{X}, \boldsymbol{Y}]]+[\boldsymbol{Y},[\boldsymbol{Z}, \boldsymbol{X}]]=\mathbf{0}$.
+
+
+
+##### 李代数 $$ \mathfrak{s o}(3)$$
+$$ \mathfrak{s o}(3) = (\left\{\boldsymbol{\phi} \in \mathbb{R}^3, \boldsymbol{\Phi}=\boldsymbol{\phi}^{\wedge} \in \mathbb{R}^{3 \times 3}\right\},实数 R, \left[\phi_1, \phi_2\right]=\left(\boldsymbol{\Phi}_1 \boldsymbol{\Phi}_2-\boldsymbol{\Phi}_2 \boldsymbol{\Phi}_1\right)^{\vee}) $$
+
+
+
+与旋转矩阵$SO(3)$的关系：
+$$
+\boldsymbol{R}(t)=\exp \left(\phi_0^{\wedge} t\right)
+$$
+
+
+
+##### 李代数 $$\mathfrak{s e}(3)$$
+
+$$ \mathfrak{s e}(3)= (\left\{\boldsymbol{\xi}=\left[\begin{array}{l}\rho \\ \phi\end{array}\right] \in \mathbb{R}^6, \boldsymbol{\rho} \in \mathbb{R}^3, \phi \in \mathfrak{s o}(3), \boldsymbol{\xi}^{\wedge}=\left[\begin{array}{ll}\phi^{\wedge} & \rho \\ \mathbf{0}^{\mathrm{T}} & 0\end{array}\right] \in \mathbb{R}^{4 \times 4}\right\},实数 R,$\left[\boldsymbol{\xi}_1, \boldsymbol{\xi}_2\right]=\left(\boldsymbol{\xi}_1^{\wedge} \boldsymbol{\xi}_2^{\wedge}-\boldsymbol{\xi}_2^{\wedge} \boldsymbol{\xi}_1^{\wedge}\right)^{\vee}$) $$
+
+
+
+#### 指数映射、对数映射
+
+##### $SO(3)$ 指对映射
+
+- 指数映射与Rodrigues类似
+
+$$
+\exp \left(\theta \boldsymbol{a}^{\wedge}\right)=\cos \theta \boldsymbol{I}+(1-\cos \theta) \boldsymbol{a} \boldsymbol{a}^{\mathrm{T}}+\sin \theta \boldsymbol{a}^{\wedge}
+$$
+
+- 对数映射
+
+$$
+\phi=\ln (\boldsymbol{R})^{\vee}=\left(\sum_{n=0}^{\infty} \frac{(-1)^n}{n+1}(\boldsymbol{R}-\boldsymbol{I})^{n+1}\right)^{\vee}
+$$
+
+##### $SE(3)$ 指对映射
+
+- 指数映射
+
+$$
+\begin{aligned}
+\exp \left(\boldsymbol{\xi}^{\wedge}\right) & =\left[\begin{array}{cc}
+\sum_{n=0}^{\infty} \frac{1}{n !}\left(\boldsymbol{\phi}^{\wedge}\right)^n & \sum_{n=0}^{\infty} \frac{1}{(n+1) !}\left(\boldsymbol{\phi}^{\wedge}\right)^n \boldsymbol{\rho} \\
+\mathbf{0}^{\mathrm{T}}
+\end{array}\right] \\
+& \triangleq\left[\begin{array}{cc}
+\boldsymbol{R} & \boldsymbol{J} \boldsymbol{\rho} \\
+\mathbf{0}^{\mathrm{T}} & 1
+\end{array}\right]=\boldsymbol{T}
+\end{aligned}
+$$
+
+其中，
+$$
+\begin{aligned}
+\sum_{n=0}^{\infty} \frac{1}{(n+1) !}\left(\boldsymbol{\phi}^{\wedge}\right)^n & =\boldsymbol{I}+\frac{1}{2 !} \theta \boldsymbol{a}^{\wedge}+\frac{1}{3 !} \theta^2\left(\boldsymbol{a}^{\wedge}\right)^2+\frac{1}{4 !} \theta^3\left(\boldsymbol{a}^{\wedge}\right)^3+\frac{1}{5 !} \theta^4\left(\boldsymbol{a}^{\wedge}\right)^4 \cdots \\
+& =\frac{1}{\theta}\left(\frac{1}{2 !} \theta^2-\frac{1}{4 !} \theta^4+\cdots\right)\left(\boldsymbol{a}^{\wedge}\right)+\frac{1}{\theta}\left(\frac{1}{3 !} \theta^3-\frac{1}{5} \theta^5+\cdots\right)\left(\boldsymbol{a}^{\wedge}\right)^2+\boldsymbol{I} \\
+& =\frac{1}{\theta}(1-\cos \theta)\left(\boldsymbol{a}^{\wedge}\right)+\frac{\theta-\sin \theta}{\theta}\left(\boldsymbol{a} \boldsymbol{a}^{\mathrm{T}}-\boldsymbol{I}\right)+\boldsymbol{I} \\
+& =\frac{\sin \theta}{\theta} \boldsymbol{I}+\left(1-\frac{\sin \theta}{\theta}\right) \boldsymbol{a}^{\mathrm{T}}+\frac{1-\cos \theta}{\theta} \boldsymbol{a}^{\wedge} \stackrel{\text { def }}{=} \boldsymbol{J} .
+\end{aligned}
+$$
+
+- 对数映射可以指数映射右上角矩阵解线性方程得到。
+
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2023-03-06%2010.06.41.png" alt="截屏2023-03-06 10.06.41" style="zoom:40%;" />
+
+#### 求导模型 & 扰动模型
+
+在 SLAM 中, 我们要估计一个相机的位置和姿态, 该位姿是由 $\mathrm{SO}(3)$ 上的旋转矩阵或 $\mathrm{SE}(3)$ 上的变换矩阵描述的。不妨设某个时刻机器人的位姿为 $\boldsymbol{T}$ 。它观察到了一个世界坐标位于 $\boldsymbol{p}$ 的 点, 产生了一个观测数据 $\boldsymbol{z}$ 。那么, 由坐标变换关系知:
+$$
+z=\boldsymbol{T}+\boldsymbol{w}
+$$
+其中 $w$ 为随机噪声。由于它的存在, $z$ 往往不可能精确地满足 $z=\boldsymbol{T} p$ 的关系。所以, 我们通常 会计算理想的观测与实际数据的误差:
+$$
+e=z-\boldsymbol{T} \boldsymbol{p}
+$$
+假设一共有 $N$ 个这样的路标点和观测, 于是就有 $N$ 个上式。那么, 对小夢卜进行位姿估计, 相当于寻找一个最优的 $\boldsymbol{T}$, 使得整体误差最小化:
+$$
+\min _{\boldsymbol{T}} J(\boldsymbol{T})=\sum_{i=1}^N\left\|\boldsymbol{z}_i-\boldsymbol{T} \boldsymbol{p}_i\right\|_2^2 .
+$$
+求解该问题必须要得到$J$对$T$的导数，由此产生了两种求导模型：
+
+- 用李代数表示姿态，然后根据李代数加法对李代数求导。
+- 对李群左乘或右乘微小扰动，然后对该扰动求导，称为左扰动和右扰动模型
+
+
+
+##### Baker-Campbell-Hausdorff 公式
+
+BCH公式用于描述旋转矩阵乘在李群上的对应变换：
+$$
+\ln (\exp (\boldsymbol{A}) \exp (\boldsymbol{B}))=\boldsymbol{A}+\boldsymbol{B}+\frac{1}{2}[\boldsymbol{A}, \boldsymbol{B}]+\frac{1}{12}[\boldsymbol{A},[\boldsymbol{A}, \boldsymbol{B}]]-\frac{1}{12}[\boldsymbol{B},[\boldsymbol{A}, \boldsymbol{B}]]+\cdots
+$$
+$SO(3)$上BCH的近似表达：
+$$
+\ln \left(\exp \left(\phi_1^{\wedge}\right) \exp \left(\phi_2^{\wedge}\right)\right)^{\vee} \approx \begin{cases}J_l\left(\phi_2\right)^{-1} \phi_1+\phi_2 & \text { 当 } \phi_1 \text { 为小量, } \\ J_r\left(\phi_1\right)^{-1} \phi_2+\phi_1 & \text { 当 } \phi_2 \text { 为小量. }\end{cases}
+$$
+
+$$
+\boldsymbol{J}_l^{-1}=\frac{\theta}{2} \cot \frac{\theta}{2} \boldsymbol{I}+\left(1-\frac{\theta}{2} \cot \frac{\theta}{2}\right) \boldsymbol{a} \boldsymbol{a}^{\mathrm{T}}-\frac{\theta}{2} \boldsymbol{a}^{\wedge} .
+$$
+$$
+\boldsymbol{J}_r(\boldsymbol{\phi})=\boldsymbol{J}_l(-\boldsymbol{\phi})
+$$
+
+$SE(3)$上BCH的近似表达：
+
+$$
+\begin{aligned}
+\exp \left(\Delta \boldsymbol{\xi}^{\wedge}\right) \exp \left(\boldsymbol{\xi}^{\wedge}\right) & \approx \exp \left(\left(\mathcal{J}_l^{-1} \Delta \boldsymbol{\xi}+\boldsymbol{\xi}\right)^{\wedge}\right) \\
+\exp \left(\boldsymbol{\xi}^{\wedge}\right) \exp \left(\Delta \boldsymbol{\xi}^{\wedge}\right) & \approx \exp \left(\left(\mathcal{J}_r^{-1} \Delta \boldsymbol{\xi}+\boldsymbol{\xi}\right)^{\wedge}\right)
+\end{aligned}
+$$
+
+##### 导数模型
+
+首先，考虑$SO(3)$上的情况。假设我们对一个空间点$p$进行了旋转，得到了$Rp$，但是$SO(3)$上没有加法，因此计算对$R$对应的李代数$\phi$的导数
+$$
+\frac{\partial(\boldsymbol{R} \boldsymbol{p})}{\partial \boldsymbol{\phi}}=(-\boldsymbol{R} \boldsymbol{p})^{\wedge} \boldsymbol{J}_l
+$$
+
+##### 扰动模型
+
+设左扰动的李代数为$\boldsymbol{\varphi}$:
+$$
+\begin{aligned}
+\frac{\partial(\boldsymbol{R} \boldsymbol{p})}{\partial \boldsymbol{\varphi}} & =\lim _{\boldsymbol{\varphi} \rightarrow 0} \frac{\exp \left(\boldsymbol{\varphi}^{\wedge}\right) \exp \left(\boldsymbol{\phi}^{\wedge}\right) \boldsymbol{p}-\exp \left(\phi^{\wedge}\right) \boldsymbol{p}}{\boldsymbol{\varphi}} \\
+& =\lim _{\boldsymbol{\varphi} \rightarrow 0} \frac{\left(\boldsymbol{I}+\boldsymbol{\varphi}^{\wedge}\right) \exp \left(\boldsymbol{\phi}^{\wedge}\right) \boldsymbol{p}-\exp \left(\phi^{\wedge}\right) \boldsymbol{p}}{\boldsymbol{\varphi}} \\
+& =\lim _{\boldsymbol{\varphi} \rightarrow 0} \frac{\varphi^{\wedge} \boldsymbol{R} p}{\boldsymbol{\varphi}}=\lim _{\boldsymbol{\varphi} \rightarrow \mathbf{0}} \frac{-(\boldsymbol{R} \boldsymbol{p})^{\wedge} \boldsymbol{\varphi}}{\boldsymbol{\varphi}}=-(\boldsymbol{R} \boldsymbol{p})^{\wedge} .
+\end{aligned}
+$$
+
+- 对$SE(3)$的扰动模型：
+
+$$
+\begin{aligned}
+\frac{\partial(\boldsymbol{T} \boldsymbol{p})}{\partial \delta \boldsymbol{\xi}} & =\lim _{\delta \boldsymbol{\xi} \rightarrow \mathbf{0}} \frac{\exp \left(\delta \boldsymbol{\xi}^{\wedge}\right) \exp \left(\boldsymbol{\xi}^{\wedge}\right) \boldsymbol{p}-\exp \left(\boldsymbol{\xi}^{\wedge}\right) \boldsymbol{p}}{\delta \boldsymbol{\xi}} \\
+& =\lim _{\delta \boldsymbol{\xi} \rightarrow \mathbf{0}} \frac{\left(\boldsymbol{I}+\delta \boldsymbol{\xi}^{\wedge}\right) \exp \left(\boldsymbol{\xi}^{\wedge}\right) \boldsymbol{p}-\exp \left(\boldsymbol{\xi}^{\wedge}\right) \boldsymbol{p}}{\delta \boldsymbol{\xi}} \\
+& =\lim _{\delta \boldsymbol{\xi} \rightarrow \mathbf{0}} \frac{\delta \boldsymbol{\xi}^{\wedge} \exp \left(\boldsymbol{\xi}^{\wedge}\right) \boldsymbol{p}}{\delta \boldsymbol{\xi}} \\
+& =\lim _{\delta \boldsymbol{\xi} \rightarrow \mathbf{0}} \frac{\left[\begin{array}{cc}
+\delta \boldsymbol{\phi}^{\wedge} & \delta \boldsymbol{\rho} \\
+\mathbf{0}^{\mathrm{T}} & 0
+\end{array}\right]\left[\begin{array}{c}
+\boldsymbol{R} \boldsymbol{p}+\boldsymbol{t} \\
+1
+\end{array}\right]}{\delta \boldsymbol{\xi}} \\
+& =\lim _{\delta \boldsymbol{\xi} \rightarrow \mathbf{0}} \frac{\left[\begin{array}{cc}
+\delta \boldsymbol{\phi}^{\wedge}(\boldsymbol{R} \boldsymbol{p}+\boldsymbol{t})+\delta \boldsymbol{\rho} \\
+\mathbf{0}^{\mathrm{T}}
+\end{array}\right]}{[\delta \boldsymbol{\rho}, \delta \boldsymbol{\phi}]^{\mathrm{T}}}=\left[\begin{array}{cc}
+\boldsymbol{I} & -(\boldsymbol{R} \boldsymbol{p}+\boldsymbol{t})^{\wedge} \\
+\mathbf{0}^{\mathrm{T}} & \mathbf{0}^{\mathrm{T}}
+\end{array}\right] \stackrel{\text { def }}{=}(\boldsymbol{T} \boldsymbol{p})^{\odot} .
+\end{aligned}
+$$
+
+
+
+### 相机成像模型
+
+
 
 
 
