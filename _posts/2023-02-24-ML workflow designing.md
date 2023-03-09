@@ -4,7 +4,7 @@ title:      ML Workflow Designing
 subtitle:   Machine learning workflow designing
 date:       2023-2-24
 author:     Kylin
-header-img: img/bg-cpp.jpg
+header-img: img/pipeline.jpg
 catalog: true
 tags:
     - machine learning

@@ -4,7 +4,7 @@ title:      A Cheatshit for SLAM
 subtitle:   All about SLAM 
 date:       2023-3-02
 author:     Kylin
-header-img: img/bg-quantitive-trading-intro.jpg
+header-img: img/slam-cover.jpg
 catalog: true
 tags:
     - machine learning
