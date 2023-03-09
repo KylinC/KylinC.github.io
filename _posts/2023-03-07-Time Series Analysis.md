@@ -1,8 +1,8 @@
 ---
 dlayout:    post
-title:      A Intro to Quantitative Trading: Time Series Analysis
+title:      A Intro to Quantitative Trading
 subtitle:   Time Series Analysis
-date:       2023-2-28
+date:       2023-03-07
 author:     Kylin
 header-img: img/bg-quantitive-trading-intro.jpg
 catalog: true
@@ -12,7 +12,11 @@ tags:
 
 
 
+
+
 [TOC]
+
+
 
 
 
@@ -332,6 +336,192 @@ data.plot(ax=ax)
 plot_predict(result, start='2012-09-27',end='2012-10-16',alpha=0.05)
 plt.show()
 ```
+
+- 画多个图的方法
+
+```
+# Import the plot_acf module from statsmodels
+from statsmodels.graphics.tsaplots import plot_acf
+
+# Plot the interest rate series and the simulated random walk series side-by-side
+fig, axes = plt.subplots(2,1)
+
+# Plot the autocorrelation of the interest rate series in the top plot
+fig = plot_acf(interest_rate_data, alpha=1, lags=12, ax=axes[0])
+
+# Plot the autocorrelation of the simulated random walk series in the bottom plot
+fig = plot_acf(simulated_data, alpha=1, lags=12, ax=axes[1])
+
+# Label axes
+axes[0].set_title("Interest Rate Data")
+axes[1].set_title("Simulated Random Walk Data")
+plt.show()
+```
+
+
+
+### AR(k) Order Estimation
+
+> 估计k，即模型阶数
+
+Identifying the Order of an AR Model：
+- The order of an $\mathrm{AR}(\mathrm{p})$ model will usually be unknown
+- Two techniques to determine order
+  - **Partial Autocorrelation Function**
+  - **Information Criteria**
+
+
+
+#### **Partial Autocorrelation Function**（PACF）
+
+> 逐步测量添加下一个lag时候的自相关系数，可以用于确定模型的阶数
+>
+> ACF测量一个时间序列在不同时间滞后下的自相关性，而PACF衡量特定滞后时间对序列的影响，并帮助确定哪些滞后时间是显著的。
+
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2023-03-07%2010.05.04.png" alt="截屏2023-03-07 10.05.04" style="zoom:43%;" />
+
+```
+from statsmodels.graphics.tsaplots import plot_pacf
+plot_pacf(x,lags=20,alpha=0.05)
+```
+
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2023-03-07%2010.07.39.png" alt="截屏2023-03-07 10.07.39" style="zoom:50%;" />
+
+
+
+#### **Information Criteria**
+
+> 防止过拟合
+
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2023-03-07%2010.09.09.png" alt="截屏2023-03-07 10.09.09" style="zoom:50%;" />
+
+```
+from statsmodels.tsa.arima.model import ARIMA
+mod = ARIMA(data,order=(1,0,0)) // order = (p,d,q), 代表ar步长、d代表差分阶、q代表ma
+result = model.fit()
+print(result.aic)
+print(result.bic) # 选择最低信息标准的模型
+```
+
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2023-03-07%2010.13.53.png" alt="截屏2023-03-07 10.13.53" style="zoom:50%;" />
+
+
+
+## Moving Average (MA) Model
+
+### MA(k)
+
+- MA(1) model
+
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2023-03-07%2010.20.10.png" alt="截屏2023-03-07 10.20.10" style="zoom:40%;" />
+
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2023-03-07%2010.24.51.png" alt="截屏2023-03-07 10.24.51" style="zoom:40%;" />
+
+- sample
+
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2023-03-07%2010.26.56.png" alt="截屏2023-03-07 10.26.56" style="zoom:50%;" />
+
+- Higher order MA models
+
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2023-03-07%2010.28.30.png" alt="截屏2023-03-07 10.28.30" style="zoom:50%;" />
+
+```
+from statsmodels.tsa.arima_process import ArmaProcess
+ar = np.array([1])
+ma = np.array([1,0.5])
+AR_object = ArmaProcess(ar,ma)
+simulated_data = AR_object.generate_sample(n_sample=1000)
+plt.plot(simulated_data)
+```
+
+
+
+### Estimating and Forecasting MA model
+
+> 和估计AR模型使用同一个模块
+
+- Estimate
+
+```
+from statsmodels.tsa.arima.model import ARIMA
+mod=ARIMA(simulated_data,order=(0,0,1))
+result = mode.fit()
+```
+
+- Forecast
+
+```
+from statsmodels.graphics.tsaplots import plot_predict
+fig,ax = plt.subplots()
+data.plot(ax=ax)
+plot_predict(result,start='2012-09-27',end='2012-10-06',ax=ax)
+plt.show()
+```
+
+
+
+## ARMA Model
+
+- $\operatorname{ARMA}(1,1)$ model:
+
+$$
+R_t=\mu+\phi R_{t-1}+\epsilon_t+\theta \epsilon_{t-1}
+$$
+
+- Converting between ARMA, AR, MA model:
+
+Eg: converting AR(1) into an MA($\infin$):
+
+$\begin{aligned} & R_t=\mu+\phi R_{t-1}+\epsilon_t \\ & R_t=\mu+\phi\left(\mu+\phi R_{t-2}+\epsilon_{t-1}\right)+\epsilon_t \\ & \vdots \\ & R_t=\frac{\mu}{1-\phi}+\epsilon_t+\phi \epsilon_{t-1}-\phi^2 \epsilon_{t-2}+\phi^3 \epsilon_{t-3}+\ldots\end{aligned}$
+
+
+
+## Cointegration Model
+
+> <img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2023-03-09%2022.34.34.png" alt="截屏2023-03-09 22.34.34" style="zoom:40%;" />
+
+举个例子：
+
+- $P_t=$ Owner
+- $Q_t=\operatorname{Dog}$
+- Both series look like a random walk
+- Difference, or distance between them, looks mean reverting 
+  -  If dog falls too far behind, it gets pulled forward
+  - If dog gets too far ahead, it gets pulled back
+
+### 检测 Cointegration
+
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2023-03-09%2022.44.04.png" alt="截屏2023-03-09 22.44.04" style="zoom:40%;" />
+
+```
+# Import the statsmodels module for regression and the adfuller function
+import statsmodels.api as sm
+from statsmodels.tsa.stattools import adfuller
+
+# Regress BTC on ETH
+ETH = sm.add_constant(ETH)
+result = sm.OLS(BTC,ETH).fit()
+
+# Compute ADF
+b = result.params[1]
+adf_stats = adfuller(BTC['Price'] - b*ETH['Price'])
+print("The p-value for the ADF test is ", adf_stats[1])
+```
+
+
+
+## Advanced Topics
+
+- GARCH Models
+- Nonlinear Models
+- Multivariate Time Series Models
+- Regime Switching Models
+- State Space Models and Kalman Filtering
+- ...
+
+
+
+
 
 
 
