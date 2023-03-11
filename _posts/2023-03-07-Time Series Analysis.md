@@ -1,6 +1,6 @@
 ---
 dlayout:    post
-title:      A Intro to Quantitative Trading
+title:      Quantitative Trading: Time Series Analysis
 subtitle:   Time Series Analysis
 date:       2023-03-07
 author:     Kylin
