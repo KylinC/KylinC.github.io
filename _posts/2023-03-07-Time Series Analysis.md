@@ -1,7 +1,7 @@
 ---
 dlayout:    post
-title:      Quantitative Trading: Time Series Analysis
-subtitle:   Time Series Analysis
+title:      Time Series Analysis
+subtitle:   Quantitative Trading 
 date:       2023-03-07
 author:     Kylin
 header-img: img/bg-quantitive-trading-intro.jpg
@@ -10,13 +10,6 @@ tags:
     - quantitative trading
 ---
 
-
-
-
-
-
-
-[TOC]
 
 
 
