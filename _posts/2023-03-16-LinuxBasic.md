@@ -16,13 +16,13 @@ tags:
 
 ## Linux学习路径
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-09-05-122326.png" alt="it SIMIEICSTM" style="zoom:45%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-09-05-122326.png" alt="it SIMIEICSTM" style="zoom:65%;" />
 
 ## 简介
 
 ### Unix族谱
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-09-05-122022.png" alt="Unnamed PDP-7 operating system" style="zoom: 25%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-09-05-122022.png" alt="Unnamed PDP-7 operating system" style="zoom: 100%;" />
 
 
 
@@ -60,9 +60,7 @@ who mom likes
 
 - who命令参数
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-09-05-141530.png" alt="截屏2021-09-05 下午10.14.37" style="zoom:33%;" />
-
-
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-09-05-141530.png" alt="截屏2021-09-05 下午10.14.37" style="zoom:45%;" />
 
 ### su,su- 和 sudo
 
@@ -229,7 +227,7 @@ FHS 定义了两层规范:
 
 - FHS 依据文件系统使用的频繁与否以及是否允许用户随意改动，将目录定义为四种交互作用的形态，如下表所示：
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-09-06-063051.png" alt="document-uid18510labid59timestamp1482919171956" style="zoom:47%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-09-06-063051.png" alt="document-uid18510labid59timestamp1482919171956" style="zoom:77%;" />
 
 ```
 sudo apt-get update
@@ -466,9 +464,9 @@ tips：为了与普通变量区分，通常我们习惯将环境变量名设为�
 
 > 环境变量的作用域比自定义变量的要大，如 Shell 的环境变量作用于自身和它的子进程。在所有的 UNIX 和类 UNIX 系统中，每个进程都有其各自的环境变量设置，且默认情况下，当一个进程被创建时，除了创建过程中明确指定的话，它将继承其父进程的绝大部分环境设置。 Shell 程序也作为一个进程运行在操作系统之上，而我们在 Shell 中运行的大部分命令都将以 Shell 的子进程的方式运行。
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-09-07-011824.png" alt="5-2" style="zoom:50%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-09-07-011824.png" alt="5-2" style="zoom:80%;" />
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-09-07-012044.png" alt="截屏2021-09-07 上午9.20.11" style="zoom:50%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-09-07-012044.png" alt="截屏2021-09-07 上午9.20.11" style="zoom:80%;" />
 
 
 
@@ -482,7 +480,7 @@ set|sort>set.txt
 
 Eg. export实例
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-09-07-013300.png" alt="document-uid735639labid60timestamp1532339293501" style="zoom:50%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-09-07-013300.png" alt="document-uid735639labid60timestamp1532339293501" style="zoom:70%;" />
 
 
 
@@ -647,9 +645,9 @@ sudo find /etc/ -name interfaces
 
 - time限定
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-09-07-030551.png" alt="截屏2021-09-07 上午11.05.45" style="zoom:33%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-09-07-030551.png" alt="截屏2021-09-07 上午11.05.45" style="zoom:53%;" />
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-09-07-030714.png" alt="截屏2021-09-07 上午11.07.00" style="zoom:50%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-09-07-030714.png" alt="截屏2021-09-07 上午11.07.00" style="zoom:40%;" />
 
 ```
 find ~ -mtime 0
@@ -787,7 +785,7 @@ tar -xzf shiyanlou.tar.gz
 
 - 其他压缩方式
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-09-21-072745.png" alt="截屏2021-09-21 下午3.27.31" style="zoom:33%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-09-21-072745.png" alt="截屏2021-09-21 下午3.27.31" style="zoom:53%;" />
 
 
 
@@ -1257,7 +1255,7 @@ cat /etc/protocols | col -x | cat -A
 join [option]... file1 file2
 ```
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-09-29-122211.png" alt="截屏2021-09-29 下午8.21.49" style="zoom:50%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-09-29-122211.png" alt="截屏2021-09-29 下午8.21.49" style="zoom:40%;" />
 
 ```
 cd /home/shiyanlou
@@ -1457,17 +1455,17 @@ exec 1>/dev/null 2>&1
 
 #### PCRE（Perl Compatible Regular Expressions 中文含义：perl 语言兼容正则表达式，适用于perl、python、grep、egrep）
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-07-145335.png" alt="截屏2021-10-07 下午10.53.15" style="zoom:30%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-07-145335.png" alt="截屏2021-10-07 下午10.53.15" style="zoom:50%;" />
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-07-145435.png" alt="截屏2021-10-07 下午10.54.05" style="zoom:30%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-07-145435.png" alt="截屏2021-10-07 下午10.54.05" style="zoom:50%;" />
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-07-145459.png" alt="截屏2021-10-07 下午10.54.16" style="zoom:30%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-07-145459.png" alt="截屏2021-10-07 下午10.54.16" style="zoom:50%;" />
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-07-145529.png" alt="截屏2021-10-07 下午10.54.26" style="zoom:30%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-07-145529.png" alt="截屏2021-10-07 下午10.54.26" style="zoom:50%;" />
 
 #### 优先级
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-07-145618.png" alt="截屏2021-10-07 下午10.56.11" style="zoom:30%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-07-145618.png" alt="截屏2021-10-07 下午10.56.11" style="zoom:50%;" />
 
 #### regex思维导图
 
@@ -1477,11 +1475,11 @@ exec 1>/dev/null 2>&1
 
 #### 表达式引擎
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-07-150109.png" alt="截屏2021-10-07 下午11.01.02" style="zoom:40%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-07-150109.png" alt="截屏2021-10-07 下午11.01.02" style="zoom:50%;" />
 
 #### 常用参数表
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-07-150331.png" alt="截屏2021-10-07 下午11.03.18" style="zoom:30%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-07-150331.png" alt="截屏2021-10-07 下午11.03.18" style="zoom:40%;" />
 
 #### 使用基本正则表达式BRE
 
@@ -1522,7 +1520,7 @@ echo '1234\nabcd' | grep '[[:alnum:]]'
 echo '1234\nabcd' | grep '[[:alpha:]]'
 ```
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-073334.png" alt="截屏2021-10-10 下午3.33.21" style="zoom:30%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-073334.png" alt="截屏2021-10-10 下午3.33.21" style="zoom:40%;" />
 
 - 排除
 
@@ -1567,7 +1565,7 @@ sed [参数]... [执行命令] [输入文件]...
 $ sed -i 's/sad/happy/' test # 表示将test文件中的"sad"替换为"happy"
 ```
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-074526.png" alt="截屏2021-10-10 下午3.45.02" style="zoom:30%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-074526.png" alt="截屏2021-10-10 下午3.45.02" style="zoom:40%;" />
 
 #### 执行性命令
 
@@ -1710,7 +1708,7 @@ sudo apt-cache search softname1 softname2 softname3……
 
 - dpkg参数表：
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-085124.png" alt="截屏2021-10-10 下午4.51.09" style="zoom:40%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-085124.png" alt="截屏2021-10-10 下午4.51.09" style="zoom:50%;" />
 
 #### 使用dpkg安装deb包
 
@@ -1859,7 +1857,7 @@ kill -signal pid
 kill －l
 ```
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-122215.png" alt="截屏2021-10-10 下午8.22.08" style="zoom:33%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-122215.png" alt="截屏2021-10-10 下午8.22.08" style="zoom:53%;" />
 
 ### 进程管理
 
@@ -1867,33 +1865,33 @@ kill －l
 
 ##### top（实时的查看进程的状态，以及系统 CPU、内存信息）
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-124356.png" alt="截屏2021-10-10 下午8.43.39" style="zoom:33%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-124356.png" alt="截屏2021-10-10 下午8.43.39" style="zoom:43%;" />
 
 - top第一行
 
-  <img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-122938.png" alt="截屏2021-10-10 下午8.28.21" style="zoom:33%;" />
+  <img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-122938.png" alt="截屏2021-10-10 下午8.28.21" style="zoom:53%;" />
 
 - 第二行（进程情况）
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-123508.png" alt="截屏2021-10-10 下午8.34.47" style="zoom:33%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-123508.png" alt="截屏2021-10-10 下午8.34.47" style="zoom:53%;" />
 
 - 第三行（cpu使用情况统计）
 
-  <img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-123708.png" alt="截屏2021-10-10 下午8.36.49" style="zoom:33%;" />
+  <img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-123708.png" alt="截屏2021-10-10 下午8.36.49" style="zoom:53%;" />
 
 - 第四行（内存使用情况）
 
-  <img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-123827.png" alt="截屏2021-10-10 下午8.38.05" style="zoom:33%;" />
+  <img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-123827.png" alt="截屏2021-10-10 下午8.38.05" style="zoom:53%;" />
 
 - 第五行（交换区使用情况）
 
-  <img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-124011.png" alt="截屏2021-10-10 下午8.40.03" style="zoom:33%;" />
+  <img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-124011.png" alt="截屏2021-10-10 下午8.40.03" style="zoom:43%;" />
 
 - > 系统中可用的物理内存最大值并不是 free 这个单一的值，而是 free   buffers   swap 中的 cached 的和。
 
 - 进程详情
 
-  <img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-124144.png" alt="截屏2021-10-10 下午8.41.12" style="zoom:33%;" />
+  <img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-124144.png" alt="截屏2021-10-10 下午8.41.12" style="zoom:43%;" />
 
   > - NICE 值叫做静态优先级，是用户空间的一个优先级值，其取值范围是 -20 至 19。这个值越小，表示进程”优先级”越高，而值越大“优先级”越低。 nice 值中的 -20 到 19，中 -20 优先级最高， 0 是默认的值，而 19 优先级最低。
   >
@@ -1935,7 +1933,7 @@ ps -afxo user,ppid,pid,pgid,command
 
 - STAT状态参数解释
 
-  <img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-130607.png" alt="截屏2021-10-10 下午9.05.13" style="zoom:50%;" />
+  <img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-130607.png" alt="截屏2021-10-10 下午9.05.13" style="zoom:60%;" />
 
 ##### pstree （查看当前活跃进程的树形结构）
 
@@ -1943,7 +1941,7 @@ ps -afxo user,ppid,pid,pgid,command
 pstree
 ```
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-130709.png" alt="截屏2021-10-10 下午9.06.57" style="zoom:33%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/2021-10-10-130709.png" alt="截屏2021-10-10 下午9.06.57" style="zoom:43%;" />
 
 #### 进程操作
 
