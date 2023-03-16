@@ -12,13 +12,9 @@ tags:
 
 
 
+
+
 [TOC]
-
-
-
-
-
-# A Intro to Quantitative Trading: Time Series Analysis
 
 
 
