@@ -1,7 +1,7 @@
 ---
 dlayout:    post
-title:      Time Series Analysis
-subtitle:   Quantitative Trading 
+title:      Financial Trading: Time Series Analysis
+subtitle:   Breif Introduction 
 date:       2023-03-07
 author:     Kylin
 header-img: img/bg-quantitive-trading-intro.jpg
