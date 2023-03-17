@@ -1,6 +1,6 @@
 ---
 dlayout:    post
-title:      Financial Trading: Time Series Analysis
+title:      Financial Trading Time Series Analysis
 subtitle:   Breif Introduction 
 date:       2023-03-07
 author:     Kylin
