@@ -10,10 +10,52 @@ tags:
     - Linux
 ---
 
+
+
+[TOC]
+
+# Install Ubuntu
+
+有一点值得说明的是，选择安装something else, 自己从free当中选swap和/
+
+
+
+# Problems in re-install Ubuntu
+
+#### 重启后进入grub显示：gave up waiting for root file system device
+
+原因可能是GRUB启动文件或者启动分区遭到破坏，解决方法就是利用Ubuntu的安装光盘，加载Boot-Repair修复引导程序来解决问题。
+
+- 制作Ubuntu安装光盘或U盘，然后启动到Ubuntu安装界面，注意这时候要选择“试用Ubuntu”，然后就能进入Ubuntu桌面。
+
+- 连接上互联网，打开终端，然后下载安装并运行Boot-Repair进行修复。
+- 打开终端
+
+```
+sudo add-apt-repository ppa:yannubuntu/boot-repair && sudo apt-get update
+
+sudo apt-get install -y boot-repair && boot-repair
+```
+
+ 然后进入到Boot-Repair修复引导程序，点击“推荐修复”，如果没有错误提示的话，按照指示操作，重启岂可成功修复。
+
+- 即使没有成功启动，重新安装ubuntu也可以解决问题。
+
+refering to：https://www.cnblogs.com/yibeimingyue/p/15478779.html
+
+
+
 # Basic Configuration for Device  
+
+## 翻墙配置
+
+这里使用的是：clash on windows
+
+refering to：https://www.cfmem.com/2021/09/linux-clash-for-windows-vpnv2ray.html
+
 ## 显卡驱动更新/拓展屏幕配置
 
- 显卡驱动更新
+ Nvidia显卡驱动更新
 
 ```<?
 sudo apt-get update
