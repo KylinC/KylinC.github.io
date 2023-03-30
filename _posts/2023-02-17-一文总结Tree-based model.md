@@ -153,7 +153,7 @@ $$
 > 泛化误差，只针对有监督模型。泛化误差是指模型在新数据上的表现与在训练数据上的表现之间的差异，是评估模型泛化能力的重要指标。
 
 - Generalization Error of $\hat{f}$ : Does $\hat{f}$ generalize well on unseen data?
-- It can be decomposed as follows: Generalization Error of $\hat{f}= bias ^2+ variance + irreducible error$
+- It can be decomposed as follows: Generalization Error of $\hat{f}= bias ^2+ variance + irreducible\ error$
 ##### bias: on avarage, how much $\hat{f} \neq f$
 
 > 高bias产生欠拟合
@@ -461,7 +461,7 @@ adb_clf_roc_auc_score = roc_auc_score(y_test,y_pred_proba)
 
 - Shrinkage
 
-<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2023-02-24%2015.45.15.png" alt="截屏2023-02-24 15.45.15" style="zoom:33%;" />
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2023-02-24%2015.45.15.png" alt="截屏2023-02-24 15.45.15" style="zoom:50%;" />
 
 Decreasing the learning rate $\eta$  needs to be compensated by increasing the number of estimators in order for the ensemble to reach a certain performance.
 
