@@ -12,6 +12,5 @@ tags:
 
 
 
-# 机器学习中的各种normalization详解
-
+### 机器学习中的各种normalization详解
 
