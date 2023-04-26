@@ -74,9 +74,9 @@ SwinTrans 原文给出了两点不同，一个是**Token的大小**，一个是*
 
 #### Abstract
 
-- 本文提出一种可以适用于多种任务的backbone->swin transformer
+- 本文提出一种可以适用于多种任务的 backbone->swin transformer
 - Transformer迁移到CV中有两点挑战->物体尺度不一，图像分辨率大。
-- 为了解决尺度不一的问题，Swin Transformer使用了分层的结构(Pyramid)
+- 为了解决尺度不一的问题，Swin Transformer使用了分层的结构 (Pyramid)
 - 为了能够在高分辨率上运行，Swin Transformer限制了attention的计算范围。 
 - Swin Transformer在多种任务上取得了非常好的性能。
 
@@ -90,7 +90,7 @@ SwinTrans 原文给出了两点不同，一个是**Token的大小**，一个是*
 
 - Patch Partition
 
-把每 2x2 个 pixel 在channel方向重排
+把每 4x4 个 pixel 在channel方向重排
 
 - Patch Merging
 
@@ -218,7 +218,7 @@ motivation: W-MSA 硬性的限制会丢失全局信息，限制模型能力，�
 
 - Patch间信息建模->MHA
 
-这之中的限定相对Conv就要小 Inductive bias就小
+这之中的限定相对Conv就要小 Inductive bias 就小
 
 <img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2023-04-12%2010.07.55.png" alt="截屏2023-04-12 10.07.55" style="zoom:50%;" />
 
