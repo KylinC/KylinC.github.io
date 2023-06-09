@@ -7,7 +7,7 @@ author:     Kylin
 header-img: img/pytorch.jpg
 catalog: true
 tags:
-    - MachineLearning
+    - machine learning
 ---
 
 
