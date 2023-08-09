@@ -1,7 +1,7 @@
 ---
 dlayout:    post
 title:      MacawLLM
-subtitle:   MACAW-LLM: MULTI-MODAL LANGUAGE MODELING WITH IMAGE, AUDIO, VIDEO, AND TEXT INTEGRATION
+subtitle:   MULTI-MODAL LANGUAGE MODELING WITH IMAGE, AUDIO, VIDEO
 date:       2023-6-25
 author:     Kylin
 header-img: img/compiler.jpg
