@@ -1,13 +1,13 @@
 ---
 dlayout:    post
 title:      Lecture: Function as a Service
-subtitle:   Notes for Lecture: Boris Grot
+subtitle:   Notes for Lecture: Boris Grot Instruction Tuning
 date:       2023-7-13
 author:     Kylin
 header-img: img/compiler.jpg
 catalog: true
 tags:
-    - lecture
+    - paper
 ---
 
 

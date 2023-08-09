@@ -7,7 +7,7 @@ author:     Kylin
 header-img: img/compiler.jpg
 catalog: true
 tags:
-    - paper reading
+    - paper
 ---
 
 [TOC]
@@ -31,5 +31,4 @@ three main components:
 - cognitive module for harnessing pretrained LLMs
 
 - **alignment module** for harmonizing diverse representations (main contribution)
-
 

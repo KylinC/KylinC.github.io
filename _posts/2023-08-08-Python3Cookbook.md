@@ -1,8 +1,8 @@
 ---
 dlayout:    post
-title:      Survey On LLMs
-subtitle:   Notes for paper: A Survey of Large Language Models
-date:       2023-08-08
+title:      Python3 Cookbook
+subtitle:   fast introduction to python3
+date:       2023-8-8
 author:     Kylin
 header-img: img/python.jpg
 catalog: true
