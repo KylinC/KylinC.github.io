@@ -1,6 +1,6 @@
 ---
 dlayout:    post
-title:      Lecture: Function as a Service
+title:      Lecture Function as a Service
 subtitle:   Notes for Lecture: Boris Grot
 date:       2023-7-13
 author:     Kylin
