@@ -76,9 +76,8 @@ Optimization goal:  is to minimize the end-to-end pipeline execution latency for
 
 #### Metrics
 
->  alpa主要是测量在training时候的performance
+>  alpa主要是测量在training时候的performance。**paper 说因为alpa没改梯度聚合、同步算法，因此收敛速度、AI performance不用测了**
 
-- training throughput (paper 说因为alpa没改梯度聚合、同步算法，因此收敛速度、AI performance不用测了)
 - 系统稳定性 weak scaling of the system when increasing the model size along with the number of GPUs
 - 集群浮点运算速度 aggregated peta floatingpoint operations per second (PFLOPS) of the whole clusters
 
