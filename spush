@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# 检查参数数量，确保有一个提交消息
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <commit message>"
+    exit 1
+fi
+
+# 获取提交消息
+commit_message="$1"
+
+# 执行 git 命令
+git add .
+git commit -m "$commit_message"
+git push
+
+# 检查 git 命令的退出状态
+if [ $? -eq 0 ]; then
+    echo "Successfully committed and pushed with message: $commit_message"
+else
+    echo "An error occurred. Check the messages above for details."
+fi
+
