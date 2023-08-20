@@ -54,7 +54,17 @@ is all you need!
 
 alpa 用了 [SPMD-style intra-op parallelism](https://arxiv.org/abs/2105.04663) 策略：partitions operators **evenly** across devices and executes the same instructions on all devices, as per the fact that devices within a single mesh have **equivalent** compute capability。
 
-op并行策略的话，alpa将其建模成一个 ILP 问题
+首先进行op合并，在code层面是jax op的聚合操作
+
+intra-op并行策略的话，alpa只考虑sharding的通信损失，将其建模成一个 ILP 问题:
+
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2023-08-18%2015.13.09.png" alt="截屏2023-08-18 15.13.09" style="zoom:53%;" />
+
+> s是决策算法的one-hot向量，左边是算法的通信带宽cost和计算cost，右边是计算图edge进行resharding的cost
+
+**令d=0，因为论文假设每个设备的计算负载平均了**：(1) For heavy operators such as matmul, we do not allow replicated computation. All parallel algorithms always evenly divide the work to all devices, so all parallel algorithms of one operator have the same arithmetic complexity; (2) For lightweight operators such as element-wise operators, we allow replicated computation of them, but their computation costs are negligible.
+
+c、v的计算都是用通信bytes/mesh-dimension bandwidth.
 
 
 
@@ -63,6 +73,43 @@ op并行策略的话，alpa将其建模成一个 ILP 问题
 Optimization goal:  is to minimize the end-to-end pipeline execution latency for the entire computational graph.
 
 这就涉及到三个地方：1）计算图划分、2）设备集群划分、3）子计算图-子设备群的配对指派
+
+最终数学上的objective其实是优化流水时长：
+
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2023-08-18%2015.24.21.png" alt="截屏2023-08-18 15.24.21" style="zoom:50%;" />
+
+> 这里B=microbatchsize，第一项是一次流水时长，第二项是最长流水段时长的(B-1)倍。
+
+- DP算法
+
+转移方程：
+
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2023-08-18%2015.30.25.png" alt="截屏2023-08-18 15.30.25" style="zoom:50%;" />
+
+> 其中，s是stage，k是op数量，d是device数量，t_max是最长流水段
+
+问题转化为：
+
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2023-08-18%2015.30.33.png" alt="截屏2023-08-18 15.30.33" style="zoom:50%;" />
+
+需要注意：
+
+- 这里的logic mesh是枚举的的，总之只要axis_0*axis_1==device_nums，里面最好的一个
+
+- 这里怎么会知道每一个段的执行时间呢？是真实测量的：We then compile the subgraph with this plan and all other low-level compiler optimizations (e.g., fusion, memory planning) to get an executable for precise profiling.
+
+  对于每一个intra-plan: IntraOpPass(stage,Mesh(nl,ml),opt ∈ LogicalMeshShapeAndIntraOp), 分别编译executable计算:
+
+  - stage latency (t_l) 
+  - memory of stage (mem_stage) 
+  - memory of intermediate activations (mem_act)
+
+
+
+#### Performance optimization
+
+- DP early stopping：早点停止没有意义的搜索
+- OP clustering：利用重操作平衡、Flops平衡、input memory平衡进行op聚合
 
 
 
@@ -83,3 +130,9 @@ Optimization goal:  is to minimize the end-to-end pipeline execution latency for
 
 
 
+### Limitations
+
+- Alpa没有对不同stage之间的通信成本进行建模，因为：alpa认为它很小、而且dp其实可以建模
+- **没有考虑stage上分支的问题**
+- Alpa没有针对重叠计算和通信的最佳方案进行优化（mobius做了，真是难搞？？）
+- Intra-op目前有一个超参数：micro-batchsize B，alpa只能枚举进行搜索。
