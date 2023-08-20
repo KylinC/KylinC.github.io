@@ -7,7 +7,7 @@ author:     Kylin
 header-img: img/bg-quantitive-trading-intro.jpg
 catalog: true
 tags:
-    - quantitative trading
+    - quant
 ---
 
 
