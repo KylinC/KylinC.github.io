@@ -14,7 +14,7 @@ tags:
 
 [TOC]
 
-mobius offload key insights：Note that we focus on extending GPU memory with only DRAM, since publicly available pretrained models can usually fit in DRAM and the **limited bandwidth of SSDs is a performance bottleneck on a single server.**
+> Mobius offload key insights：Note that we focus on extending GPU memory with only DRAM, since publicly available pretrained models can usually fit in DRAM and the **limited bandwidth of SSDs is a performance bottleneck on a single server.**
 
 #### Baseline：
 
@@ -86,19 +86,50 @@ Mobius partitions the model into stages and carefully schedules them between GPU
 
 <img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2023-08-20%2017.18.38.png" alt="截屏2023-08-20 17.18.38" style="zoom:100%;" />
 
-
+这里分析了这个pipeline的communicationTraffic，结论是DS需要在每一个GPU上load一次parameters，但是Mobius只需要一次load，所以结论是cost降低到1/N了。
 
 
 
 #### 2）Model Partition
 
+利用Mixed Integer Program (MIP) 解决：
+
+- 多少stage 
+- layer-stage mapping
+
+<img src="https://kylinhub.oss-cn-shanghai.aliyuncs.com/image-20230820195634735.png" alt="image-20230820195634735" style="zoom:80%;" />
+
+Profiling 的时候做了层聚合，为了方便，但是没有细说算法
+
+MIP 是用 Gurobi 做的
 
 
 
 
-#### 3）Mapping
 
+#### 3）Cross Mapping
 
+Based on the observation, Mobius maps adjacent stages to GPUs not under the same CPU root complex as much as possible, called cross mapping.   
+
+其实就是尽量把相邻stage不要分配到一个GPU上呗
+
+这里有一个争用度的概念：对于 stage_i 和 stage_j，有两个观察：
+
+1）i和j的绝对差越小，争用越大
+
+2）若i和j在同一个root complex上，连接的GPU越多，争用越大
+
+<img src="https://kylinhub.oss-cn-shanghai.aliyuncs.com/image-20230820202851055.png" alt="image-20230820202851055" style="zoom:67%;" />
+
+> sh𝑎𝑟𝑒𝑑(𝑖, 𝑗) is the number of GPUs under the same CPU root complex where 𝑆𝑡𝑎𝑔𝑒𝑖 and 𝑆𝑡𝑎𝑔𝑒𝑗 are located. If the GPUs storing 𝑆𝑡𝑎𝑔𝑒𝑖 and 𝑆𝑡𝑎𝑔𝑒𝑗 are under different CPU root complex, 𝑠ℎ𝑎𝑟𝑒𝑑(𝑖, 𝑗) is zero  
+
+因此分配的优化objective为：
+
+<img src="https://kylinhub.oss-cn-shanghai.aliyuncs.com/image-20230820203002867.png" alt="image-20230820203002867" style="zoom:67%;" />
+
+mobius 是枚举之后进行最小化的
+
+还有一个trick是如果prefetch争用了，那个stage先执行就给它赋予高权限（cudaStreamCreateWithPriority），目标是避免之后更多的流水线阻塞。
 
 
 
