@@ -4,7 +4,7 @@ title:      GSPMD for ops partition across muti-devices
 subtitle:   General and Scalable Parallelization for ML Computation Graphs
 date:       2023-8-13
 author:     Kylin
-header-img: img/sparse.jpg
+header-img: img/bg-owncloud.jpg
 catalog: true
 tags:
     - paper

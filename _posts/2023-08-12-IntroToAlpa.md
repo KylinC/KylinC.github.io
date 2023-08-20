@@ -4,7 +4,7 @@ title:      Alpa Distributed ML Compiler
 subtitle:   Automating Inter- and Intra-Operator Parallelism for Distributed Deep Learning
 date:       2023-8-12
 author:     Kylin
-header-img: img/sparse.jpg
+header-img: img/bg-owncloud.jpg
 catalog: true
 tags:
     - paper

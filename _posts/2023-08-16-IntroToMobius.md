@@ -4,7 +4,7 @@ title:      Introduction to Mobius
 subtitle:   Fine Tuning Large-Scale Models on Commodity GPU Servers
 date:       2023-8-16
 author:     Kylin
-header-img: img/sparse.jpg
+header-img: img/bg-owncloud.jpg
 catalog: true
 tags:
     - paper

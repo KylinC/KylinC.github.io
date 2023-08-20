@@ -4,7 +4,7 @@ title:      AlpaServe Distributed ML Serving
 subtitle:   Statistical Multiplexing with Model Parallelism for Deep Learning Serving
 date:       2023-8-12
 author:     Kylin
-header-img: img/sparse.jpg
+header-img: img/bg-owncloud.jpg
 catalog: true
 tags:
     - paper
