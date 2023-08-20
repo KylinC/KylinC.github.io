@@ -166,7 +166,7 @@ TOP-N股票池由过去3个月内平均美元交易量最高的N只该地区股�
 - 数据字段解释：[Data](https://platform.worldquantbrain.com/learn/data-and-operators/price-volume-data-for-equity)
 - 运算符解释：[Learn/Ops](https://platform.worldquantbrain.com/learn/data-and-operators/operators?_gl=1*je5iyn*_ga*MTAwMTk0NzY2OS4xNjcyNzA5NzU3*_ga_9RN6WVT1K1*MTY3MzM2MDU0OC4zNi4xLjE2NzMzNjQ3MjQuNTkuMC4w)
 
-![graph2.png](https://api.worldquantbrain.com/content/images/CkufFbl94S5uR8mcY2ibtUNFKeA=/166/original/graph2.png)
+![image-20230820211029871](https://kylinhub.oss-cn-shanghai.aliyuncs.com/image-20230820211029871.png)
 
 
 
