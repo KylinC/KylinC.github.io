@@ -83,24 +83,56 @@ Considering the OPT-175B model in FP 16, the total number of bytes to store the 
 
 #### Search Space
 
-##### compute schedule
+- compute schedule
 
-- optimization 1: Zig-Zag travel （文章证明了这个方案是 2x 最优的）
-- optimization 2: Overlapping
+optimization 1: Zig-Zag travel （文章证明了这个方案是 2x 最优的）
 
-##### Tensor placement
+optimization 2: Overlapping
+
+- Tensor placement
 
 粒度问题：Considering both the runtime overhead and desired flexibility, we use **layer granularity for weights**, and **tensor granularity for activations and the KV cache**.
 
 引入约束变量限制在三级储存中的百分比。
 
-##### Computation delegation
+- Computation delegation
+
+有的时候在在KV cache储存近端进行计算是最优的：
+
+KV cache 存在 DRAM，在CPU计算后把activation -> GPU 的字节为 $b\times h_1 \times 4$
+
+或者 KV cache -> GPU 字节为 $s \times b\times h_1 \times 4$
 
 
 
+#### Cost Model
+
+> FlexGen的cost是通过数学进行估计的
+
+做一个block推理的lantency估计为(注意一个block中的纵列的layer只需要load一次，即zig-zag)：
+$$
+T=T_{p r e} \cdot l+T_{g e n} \cdot(n-1) \cdot l
+$$
+
+> 其中 T_pre 为load一个layer的延迟，T_gen 为推理完一个block_batch的一层的延迟，所以paper认为T_gen会更大
+
+而这里的延迟是使用bits/bandwidth方式估计出来的。
+
+**除此之外，FlexGen还估计了内存占用以添加内存约束**
 
 
-#### Extension to Multiple GPUs
+
+#### Policy Search
+
+确定一组 (bls, gbs) 即 (block_size, batch_size)，其中 bls 是4的倍数，gbs小于20，然后搜索tensor placement：
+
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2023-08-22%2009.05.06.png" alt="截屏2023-08-22 09.05.06" style="zoom:80%;" />
+
+然后说如果坏了只能手调，而且手调的还好hhh
+
+
+
+#### (Extra) Extension to Multiple GPUs
 
 就是平均分layer到stage，不考虑device计算性能
 
