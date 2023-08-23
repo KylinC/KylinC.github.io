@@ -88,9 +88,22 @@ Q: 为什么Neutralization选择其他选项的时候不可以
 
 ###　**Demand of call options**
 
+#### Concept
+
+1. **Call Option（看涨期权）**：是一种金融合约，允许（但不要求）买方在某个特定日期或之前，以特定价格购买某个资产，如股票。
+2. **Option Premium（期权溢价）**：购买期权的成本。其价值会受到许多因素的影响，如股票的当前价格、期权的执行价格、剩余时间和预期波动性等。
+3. **Breakeven Price（盈亏平衡价格）**：这是股票需要达到的价格，以使期权持有者不亏损。对于看涨期权，这等于期权的执行价格加上期权溢价。
+4. “mean reversion”： 均值回归，市场不会长期处于偏见状态。
+5. **share vs.  option**:
+
+- **股票**：代表公司的所有权份额。当你购买股票时，你实际上是购买了该公司的一小部分所有权。
+- **期权**：是一个合约，给予买方权利（但不是义务）在未来的某个时间，以约定的价格买入或卖出一定数量的股票。
+
 **Hypothesis**
 
-Use call implied breakeven price to gauge the demand of call options. If investors are bullish on one stock, the demand for call option should go up, increasing call option's premium, and then breakeven price. Apply reversion in the returns of call implied breakeven price by capturing correlation of rank returns over time.
+call_option太高，在之后的时间步里会下降，因为均值回归。
+
+> Use call implied breakeven price to gauge the demand of call options. If investors are bullish (看涨) on one stock, the demand for call option should go up, increasing call option's premium, and then breakeven price. Apply reversion in the returns of call implied breakeven price by capturing correlation of rank returns over time.
 
 **Implementation**
 
@@ -108,4 +121,30 @@ x = (w /last_diff_value(w, 1) ) - 1;
 Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	NaN Handling	Unit Handling
 USA	TOP3000	Fast Expression	0	1	0.08	Market	On	Off	Verify
 ```
+
+
+
+### **Operating earnings yield**
+
+**Hypothesis**
+
+Operating earning yield (OEY) refers to the amount of earnings from operating activities an investor can obtain for each dollar invested. Higher OEY implies higher returns for the same amount of invested capital thus representing an investment opportunity.
+
+**Implementation**
+
+Long stocks that witnessed higher-than-average OEY growth and short the others.
+
+**Hint to improve the Alpha**
+
+Can normalize the difference between a stock OEY growth and the average improve the performance?
+
+```
+oey_growth = ts_rank(mdf_oey, 63);
+oey_growth - group_mean(oey_growth, 1, subindustry)
+###################################
+Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	NaN Handling	Unit Handling
+USA	TOP3000	Fast Expression	5	1	0.08	Subindustry	On	Off	Verify
+```
+
+
 
