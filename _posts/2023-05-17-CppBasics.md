@@ -7,7 +7,7 @@ author:     Kylin
 header-img: img/post-cache.jpg
 catalog: true
 tags:
-    - Job-Oriented Learning
+    - programming
 ---
 
 

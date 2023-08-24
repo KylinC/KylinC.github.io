@@ -45,7 +45,7 @@ tags:
 
 
 
-#### 头寸
+#### 头寸 Position
 
 “头寸”是金融和投资领域的术语，它描述的是投资者或交易者在特定资产或合约上的持仓数量。简而言之，头寸代表了一个人或机构在某个资产上的投资大小或风险敞口。
 
@@ -158,6 +158,60 @@ WQ可以选择的Neutralization选项：
 TOP-N股票池由过去3个月内平均美元交易量最高的N只该地区股票组成。例如，在流动性最好的股票池中，TOP3000是具有最高流动性的3000只股票的集合；TOP2000是具有最高流动性的2000只股票的集合；依此类推。TOP2000是TOP3000股票的子集。
 
 提示：较大的股票池包括流动性较低的股票，其交易成本和市场交易影响较高。因此，在这种池中的Alphas应该包含加权（例如按市值或成交量）以更少地交易低流动性股票。
+
+
+
+### Metrics for Simulation
+
+#### 信息比率 IR
+
+[信息比率(IR)](https://support.worldquantbrain.com/hc/en-us/articles/4902349883927-Click-here-for-a-list-of-terms-and-their-definitions#:~:text=details *)衡量模型的预测能力。在BRAIN平台中，定义为组合每日平均[收益](https://support.worldquantbrain.com/hc/en-us/articles/4902349883927-Click-here-for-a-list-of-terms-and-their-definitions#:~:text=details.-,Returns,-Returns)与这些收益的波动率之比:
+$$
+I R=\frac{\operatorname{mean}(P n L)}{\operatorname{stdev}(P n L)}
+$$
+其中[PnL](https://support.worldquantbrain.com/hc/en-us/articles/4902349883927-Click-here-for-a-list-of-terms-and-their-definitions#:~:text=consultants-,Profit and Loss (PnL),-Profit)是每日盈亏，以美元计算。
+
+#### 夏普比率 Sharpe
+
+[Sharpe](https://support.worldquantbrain.com/hc/en-us/articles/4902349883927-Click-here-for-a-list-of-terms-and-their-definitions#:~:text=details.-,Sharpe ratio,-Sharpe)是IR统计量的年化版本，即Sharpe=sqrt(252)*IR ≈ 15.8*IR，其中252是一年中美国交易日（市场开放日）的平均数量。
+Sharpe或IR衡量Alpha的回报，同时尝试识别其一致性。IR越高，Alpha的回报就越一致，一致性是理想的特征。高Sharpe（或IR）比仅仅高回报更为理想.
+
+#### 适应性 Fitness
+
+> https://platform.worldquantbrain.com/learn/documentation/interpret-results/alpha-performance
+
+[Alpha](https://support.worldquantbrain.com/hc/en-us/articles/4902349883927-Click-here-for-a-list-of-terms-and-their-definitions#:~:text=A-,Alpha,-An)的[适应性](https://support.worldquantbrain.com/hc/en-us/articles/4902349883927-Click-here-for-a-list-of-terms-and-their-definitions?_gl=1*kzy9vq*_ga*MTQwNjE0ODE1OC4xNjkyODQxMjI0*_ga_9RN6WVT1K1*MTY5Mjg0MTIyMy4xLjEuMTY5Mjg0MjA2Ny42MC4wLjA.*_ga_FXKNEPLB1N*MTY5Mjg0MTIyNC4xLjEuMTY5Mjg0MjA2Ny4wLjAuMA..#:~:text=ratios.-,Fitness,-Fitness)是收益、[换手率](https://support.worldquantbrain.com/hc/en-us/articles/4902349883927-Click-here-for-a-list-of-terms-and-their-definitions#:~:text=details.-,Turnover,-Average)和Sharpe的函数:
+$$
+\text { Fitness }=\text { Sharpe } \cdot \sqrt{\frac{a b s(\text { Returns })}{\max (\text { Turnover }, 0.125)}}
+$$
+
+#### 累积PnL图表
+
+累计[PnL](https://support.worldquantbrain.com/hc/en-us/articles/4902349883927-Click-here-for-a-list-of-terms-and-their-definitions#:~:text=consultants-,Profit and Loss (PnL),-Profit)图表：Alpha在整个回测期间的表现（PnL）的图表（如下所示）。该图表可以通过在绘图区域下方单击并拖动来放大。在此处可以更改PnL绘制的起始和结束日期。在PnL图表上方的下拉菜单中单击Sharpe比率可显示Sharpe比率图表（随时间变化的[Sharpe Ratio](https://support.worldquantbrain.com/hc/en-us/articles/4902349883927-Click-here-for-a-list-of-terms-and-their-definitions#:~:text=details.-,Sharpe ratio,-Sharpe)）。确保PnL图表呈上升趋势，Sharpe高且回撤（[Drawdown](https://support.worldquantbrain.com/hc/en-us/articles/4902349883927-Click-here-for-a-list-of-terms-and-their-definitions#:~:text=today-,Drawdown,-Drawdown)）最小：
+
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2023-08-24%2010.08.44.png" alt="截屏2023-08-24 10.08.44" style="zoom:47%;" />
+
+#### 年化收益率 Returns
+
+交易资本的回报率：年回报率=年化PnL/账本大小的一半。它表示观察期间您获得或损失的金额，以%表示。Booksize指的是在回测期间用于交易的资本（资金）的金额。Booksize是恒定的，并且每天都设置为2000万美元。利润不会再投资，损失会用现金注入到组合中补充。BRAIN平台假设您有1000万美元，并将投资于高达2000万美元的资产。这被称为杠杆。表现（如收益率、Sharpe）是在1000万美元的基础上计算的.
+
+#### 换手率 Turnover
+
+换手率表示交易的频率。它可以定义为交易价值与账本大小之比。Daily Turnover = Dollar trading [volume](https://support.worldquantbrain.com/hc/en-us/articles/4902349883927-Click-here-for-a-list-of-terms-and-their-definitions#:~:text=time.-,Volume,-Volume)/Booksize。良好的Alpha换手率低，因为低换手率意味着较低的交易成本。
+
+#### 单位收益、边际收益 Margin
+
+每交易一美元的利润；计算方法是PnL除以一定时间段内总交易额。
+
+#### PnL
+
+盈亏（PnL）是头寸和交易产生的资金（这意味着您在该年赚或赔的金额，以美元表示）。
+
+daily_PnL = sum of (size of position * daily_return) for all instruments, 其中 daily return per instrument = (today’s close / yesterday’s close) – 1.0。
+
+#### 回撤 Drawdown
+
+一段时间内PnL最大的降低，以百分比表示。计算方法如下：找到PnL中最大的峰值到谷值回撤，并将其美元金额除以账本大小的一半（$1,000,000）来计算
 
 
 

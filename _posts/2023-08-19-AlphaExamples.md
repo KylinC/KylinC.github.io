@@ -20,11 +20,13 @@ tags:
 
 
 
-### Data Field Search
+### Data Field Search & operations
 
-https://platform.worldquantbrain.com/data/search
+Data: https://platform.worldquantbrain.com/data/search
 
+Operation: https://platform.worldquantbrain.com/learn/data-and-operators/operators#arithmetic-operators
 
+https://platform.worldquantbrain.com/learn/data-and-operators/detailed-operator-descriptions
 
 ### **Future Investment and Dividend**
 
@@ -147,4 +149,121 @@ USA	TOP3000	Fast Expression	5	1	0.08	Subindustry	On	Off	Verify
 ```
 
 
+
+### **R&D Expense**
+
+**Hypothesis**
+
+Companies that spend more money on R&D as a proportion of their revenue may outperform others in the future
+
+**Implementation**
+
+Companies are ranked based on R&D expense to revenue ratio
+
+**Hint to improve the Alpha**
+
+Can different neutralization setting improve the alpha performance?
+
+```
+rank(mdf_rds)
+#################################
+Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	NaN Handling	Unit Handling
+USA	TOP3000	Fast Expression	0	1	0.01	Subindustry	On	Off	Verify
+```
+
+
+
+### **High return on equity and assets utilization**
+
+**Hypothesis**
+
+Stocks with simultaneously high return on equity and assets utilization may out perform others .
+
+**Implementation**
+
+The rank of return on equity (ROE) is multiplied by rank of sales to assets (assets utilization).
+
+**Hint to improve the Alpha**
+
+Can different neutralization setting improve the alpha performance?
+
+```
+fam_roe_rank*rank(sales/assets)
+#################################
+Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	NaN Handling	Unit Handling
+USA	TOP3000	Fast Expression	0	1	0.01	None	On	Off	Verify
+```
+
+
+
+### **Price to Earnings ratio**
+
+**Hypothesis**
+
+A stock with increasing Price to Earnings ratio might be comparatively expensive now and thus the stock price will likely fall. Thus we short the stocks whose current price/earnings ratio is higher than the 2 years' moving average of the ratio and vice-versa.
+
+**Implementation**
+
+(mdf_pec) is current price/earnings ratio. To capture this idea, Ts_av_diff() operator subtracts the moving average of 2 years' price/earnings ratio from the today's ratio. Also, Rank() operator smooths the difference between current price/earnings ratio and the mean of this value, returning equally distributed values between 0 and 1.
+
+**Hint to improve the Alpha**
+
+Can you try using the vector_neut(x,y) operator so that your alpha is neutralized to one-year Information ratio.
+
+```
+-group_rank(ts_av_diff(mdf_pec,480),subindustry)
+########################
+Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	NaN Handling	Unit Handling
+USA	TOP3000	Fast Expression	0	1	0.01	Market	On	Off	Verify
+```
+
+
+
+### **No news is a good news**
+
+**Hypothesis**
+
+No news is good news. Stocks with lower sentiment volume and observing no significant sentiment recently may outperform others.
+
+**Implementation**
+
+Total sentiment volume over the past week is calculated and compared over the last quarter. The result is then multiplied with the ranking within a sector of the most significant sentiment observed.
+
+**Hint to improve the Alpha**
+
+Can different simulation settings improve the alpha?
+
+```
+sum_vol = ts_sum(vec_sum(scl12_alltype_buzzvec), 5);
+significance = vec_norm (scl12_alltype_sentvec) / vec_count(scl12_alltype_sentvec);
+sent_vol = -ts_rank(sum_vol, 60);
+sent_sig = ts_max(significance, 10);
+sent_vol * group_rank(sent_sig, sector)
+########################
+Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	NaN Handling	Unit Handling
+USA	TOP200	Fast Expression	0	1	0.01	Market	On	Off	Verify
+```
+
+
+
+### **High cashflow from operations to cover short term debt**
+
+**Hypothesis**
+
+Stocks of companies that have high cash flow from operations to cover short term debt tend to have low risk and thus market participants would prefer to buy this stock leading to potential future outperformance.
+
+**Implementation**
+
+Information ratio (IR) is the ratio between cash flow from operations and short term debt. If it’s calculated with a higher value that indicates a higher ratio average and/or higher stability. This result is then compared with other stocks in the market using the cross-sectional zscore operator.
+
+**Hint to improve the Alpha**
+
+Can the signal be improved by comparing this ratio only for companies which have positive cashflow from operations? Think why and how you can implement this using some operator.
+
+```
+zscore(ts_ir(cashflow_op/debt_st,1250))
+########################
+Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	NaN Handling	Unit Handling
+USA	TOP3000	Fast Expression	10	1	0.01	Subindustry	On	Off	Verify
+```
 
