@@ -267,3 +267,227 @@ Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	Na
 USA	TOP3000	Fast Expression	10	1	0.01	Subindustry	On	Off	Verify
 ```
 
+
+
+### **Rising net profit margin**
+
+**Hypothesis**
+
+Net profit margin is associated with the profitability of a company, thus rising net profit margin would imply better business performance.
+
+**Implementation**
+
+Implementing ts_avg_diff operator to long stocks that are witnessing an increase in net profit margin when compared with its mean over the last two years and short the others.
+
+**Hint to improve the Alpha**
+
+Can different neutralization setting improve the alpha performance?
+
+```
+ts_av_diff(mdf_nps,500)
+###########################
+Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	NaN Handling	Unit Handling
+USA	TOP3000	Fast Expression	5	1	0.01	Market	On	Off	Verify
+```
+
+
+
+### **Put-Call Open Interest ratio (PCR-OI)**
+
+#### Put-Call Open Interest Ratio (PCR-OI) 
+
+Put-Call Open Interest Ratio (PCR-OI) 是衡量金融市场中看跌期权（Put options）和看涨期权（Call options）的开放利益量（或未平仓合约量）的指标。开放利益是指在某一特定时间尚未平仓的期权合约数量。
+
+$PCR-OI =看跌期权的开放利益 / 看涨期权的开放利益$
+
+#### Call Option and Put Option
+
+1. **看涨期权 (Call Option)**
+   - 给予持有者在未来某个特定日期或之前以特定价格买入资产的权利。
+   - 买入一个看涨期权意味着你认为资产的价格将上升，因此你希望以现在约定的价格在未来买入。
+   - 出售（或写入）一个看涨期权意味着你有义务在未来以约定的价格卖出资产，如果买方选择行使权利的话。
+2. **看跌期权 (Put Option)**
+   - 给予持有者在未来某个特定日期或之前以特定价格卖出资产的权利。
+   - 买入一个看跌期权意味着你认为资产的价格将下降，因此你希望以现在约定的价格在未来卖出。
+   - 出售（或写入）一个看跌期权意味着你有义务在未来以约定的价格买入资产，如果买方选择行使权利的话。
+
+**Hypothesis**
+
+Open Interest refers to the amount of active open positions in call and put options. Stocks with higher Put-Call Open Interest ratio (PCR-OI) might indicate a normal than usual on-going bearish sentiment for the stock and thus it might be poised for a reversal. Thus it is suggested to buy stocks with high PCR-OI.
+
+**Implementation**
+
+We directly use PCR-OI datafield as a signal to test our hypothesis.
+
+**Hint to improve the Alpha**
+
+In what universe would this strategy work best? Can increasing weight on stocks that have had high average volume help improve the signal?
+
+```
+pcr_oi_all
+######################
+Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	NaN Handling	Unit Handling
+USA	TOP200	Fast Expression	5	1	0.01	Market	On	Off	Verify
+```
+
+
+
+### **Growth in EPS and Sales**
+
+#### Earnings Per Share，EPS，每股收益
+
+*EPS* = (净利润−优先股股息)/普通股在外流通股数
+
+**Hypothesis**
+
+Companies with growing EPS indicates improving profitability. Buy more stocks of companies that have sales growth as well as eps growth as it signals overall strength in business performance.
+
+**Implementation**
+
+Use ts_avg_diff operator to compare current three-year eps growth (mdf_eg3) with it's average over one year. Use ts_corr operator to identify stocks with a combination of high eps growth and sales growth.
+
+**Hint to improve the Alpha**
+
+Can expanding the lookback period improve the alpha?
+
+```
+ts_av_diff(mdf_eg3, 250)*ts_corr(mdf_eg3, mdf_sg3, 250)
+##############################
+Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	NaN Handling	Unit Handling
+USA	TOP200	Fast Expression	0	1	0.01	Subindustry	On	Off	Verify
+```
+
+
+
+### **CAPM**
+
+
+
+### **High earnings**
+
+**Hypothesis**
+
+Buy more of stocks with a higher earnings yield rank in the sector.
+
+**Implementation**
+
+Using group_rank operator, earning yield rank of a stock is compared against other companies within the same sector.
+
+**Hint to improve the Alpha**
+
+Can you try a different group to improve the alpha performance?
+
+```
+group_rank(fam_est_eps_rank, sector)
+#################################
+Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	NaN Handling	Unit Handling
+USA	TOP3000	Fast Expression	0	1	0.01	Subindustry	On	Off	Verify
+```
+
+
+
+### ***Pay back the debt**
+
+**Hypothesis**
+
+It is usually safer to go long on companies that can easily pay back the short term debt using high liquid assets.
+
+**Implementation**
+
+Zscore of the ratio between cash and short term debt is calculated with higher readings refer to higher ratio when compared with the market.
+
+**Hint to improve the Alpha**
+
+Try comparing a stock with its peers instead of the whole market.
+
+```
+zscore(cash_st/debt_st)
+########################
+Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	NaN Handling	Unit Handling
+USA	TOP500	Fast Expression	0	1	0.01	Subindustry	On	Off	Verify
+```
+
+
+
+### **News release**
+
+
+
+### ***EBIT vs CAPEX**
+
+**Hypothesis**
+
+Stocks with higher EBIT compared to CapEx can be a sign of the company not investing much in growth and the stock may not grow as much, thus we should sell those stocks.
+
+**Implementation**
+
+CapEx (capital expenditure) is money spent on acquiring/maintaining fixed assets. Compare CapEx with EBIT, which is a company's net income before interest and taxes, and short stocks with inadequate CapEx.
+
+**Hint to improve the Alpha**
+
+Can different neutralization settings improve the alpha performance?
+
+```
+-rank(ebit/capex)
+##################
+Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	NaN Handling	Unit Handling
+USA	TOP3000	Fast Expression	0	1	0.01	Sector	On	Off	Verify
+```
+
+
+
+### ***Retained earning**
+
+**Hypothesis**
+
+Retained earnings are the cumulative net earnings of a company after dividend payments to the shareholders. In certain situations, shareholders might want to receive their dividends and realize their profit. Thus, some shareholders might not be happy with excessive retained earnings.
+
+**Implementation**
+
+We should long the stock that has its retained earnings decreasing and vice-versa.
+
+**Hint to improve the Alpha**
+
+Can different neutralization setting improve the alpha performance?
+
+```
+-ts_rank(retained_earnings,250)
+################################
+Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	NaN Handling	Unit Handling
+USA	TOP3000	Fast Expression	10	1	0.01	Sector	On	Off	Verify
+```
+
+
+
+### ***Attention**
+
+**Hypothesis**
+
+Too much attention towards a stock usually followed by overreaction in its stock price.
+
+**Implementation**
+
+You should trade top 5% highest sentiment volume stocks by longing/shorting stocks with negative/positive sentiment, respectively.
+
+**Hint to improve the Alpha**
+
+Volumes of all kinds usually face the problem of outliners, try smoothing the data for better alpha performance.
+
+```
+sent_vol = vec_sum(scl12_alltype_buzzvec);
+trade_when(rank(sent_vol)>0.95,-zscore(scl12_buzz)*sent_vol,-1)
+###########################
+Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	NaN Handling	Unit Handling
+USA	TOP3000	Fast Expression	0	1	0.01	Subindustry	On	Off	Verify
+```
+
+
+
+### **Total Risk of a stock**
+
+
+
+
+
+### **Customers' Web Ranking**
+
