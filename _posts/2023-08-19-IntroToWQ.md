@@ -1,6 +1,6 @@
 ---
 dlayout:    post
-title:      Intro To WQ and Factor Fundamentals
+title:      C1 Intro To WQ and Factor Fundamentals
 subtitle:   WQ介绍和因子投资基础
 date:       2023-8-18
 author:     Kylin

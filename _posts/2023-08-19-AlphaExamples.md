@@ -359,7 +359,7 @@ USA	TOP200	Fast Expression	0	1	0.01	Subindustry	On	Off	Verify
 
 
 
-### ***CAPM**
+### **CAPM**
 
 **Hypothesis**
 
@@ -593,4 +593,6 @@ group_rank(rel_num_cust,sector)>0.7?alpha:alpha*0.5
 Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	NaN Handling	Unit Handling
 USA	TOP500	Fast Expression	0	1	0.01	Subindustry	On	Off	Verify
 ```
+
+
 
