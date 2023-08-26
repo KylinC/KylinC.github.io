@@ -359,7 +359,30 @@ USA	TOP200	Fast Expression	0	1	0.01	Subindustry	On	Off	Verify
 
 
 
-### **CAPM**
+### ***CAPM**
+
+**Hypothesis**
+
+Outperforming stocks would continue to outperform. If a stock's actual return exceeds its expected return using the CAPM model, it would continue to perform well in the future.
+
+**Implementation**
+
+According to Capital Asset Pricing Model (CAPM), a stock's expected return is equal to risk-free-rate (Rf) plus its beta (β) multiplied by the market risk premium (Rm-Rf)
+
+**Hint to improve the Alpha**
+
+Can different simulation settings improve the alpha?
+
+```
+market_ret = ts_product(1+group_mean(returns,1,market),250)-1;
+rfr = vec_avg(fnd6_newqeventv110_optrfrq);
+expected_return = rfr+beta_last_360_days_spy*(market_ret-rfr);
+actual_return = ts_product(returns+1,250)-1;
+actual_return-expected_return
+############################
+Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	NaN Handling	Unit Handling
+USA	TOP1000	Fast Expression	5	1	0.01	Subindustry	On	Off	Verify
+```
 
 
 
@@ -386,7 +409,7 @@ USA	TOP3000	Fast Expression	0	1	0.01	Subindustry	On	Off	Verify
 
 
 
-### ***Pay back the debt**
+### **Pay back the debt**
 
 **Hypothesis**
 
@@ -401,7 +424,7 @@ Zscore of the ratio between cash and short term debt is calculated with higher r
 Try comparing a stock with its peers instead of the whole market.
 
 ```
-zscore(cash_st/debt_st)
+group_rank(zscore(cash_st/debt_st),subindustry)
 ########################
 Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	NaN Handling	Unit Handling
 USA	TOP500	Fast Expression	0	1	0.01	Subindustry	On	Off	Verify
@@ -409,11 +432,47 @@ USA	TOP500	Fast Expression	0	1	0.01	Subindustry	On	Off	Verify
 
 
 
-### **News release**
+### ***News release**
+
+**Hypothesis**
+
+If the deviation of percent changes between the price at the time of the news release to the price at the close of the session (nws12_prez_results) in a day is large, there may exist an investment opportunity.
+
+**Implementation**
+
+If percent change in a day is large it might imply high risk. Thus, we should short the stocks with high risk.
+
+**Hint to improve the Alpha**
+
+Use trade_when operator to lower your turnover.
+
+```
+percent = ts_rank(vec_stddev(nws12_prez_result2),50);
+-ts_rank(ts_decay_linear(percent,150),50)
+##########################
+Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	NaN Handling	Unit Handling
+USA	TOP3000	Fast Expression	20	1	0.01	Market	On	Off	Verify
+```
 
 
 
-### ***EBIT vs CAPEX**
+### **EBIT vs CAPEX**
+
+#### EBIT
+
+**EBIT (Earnings Before Interest and Taxes)** - 利息和税前盈利
+
+- EBIT 是一家公司从其主要或常规营业活动中获得的总收入减去运营费用（但在扣除利息和税之前）的利润。
+- 它通常用来度量公司的运营性能，因为它排除了由资本结构（如债务和利息支出）和税务状况产生的影响。
+- EBIT 也经常被称为“运营利润”或“运营收益”。
+
+#### CAPEX
+
+**CAPEX (Capital Expenditures)** - 资本支出
+
+- CAPEX 是公司为购买、升级、改进其长期资产（如物业、工厂、技术或设备）所做的支出。
+- 与营运支出 (OPEX) 不同，CAPEX 通常是为期多年的大额投资，其价值在其使用寿命期间逐年折旧。
+- CAPEX 可以被视为公司为确保其未来增长或维持其现有运营水平所进行的投资。
 
 **Hypothesis**
 
@@ -421,7 +480,7 @@ Stocks with higher EBIT compared to CapEx can be a sign of the company not inves
 
 **Implementation**
 
-CapEx (capital expenditure) is money spent on acquiring/maintaining fixed assets. Compare CapEx with EBIT, which is a company's net income before interest and taxes, and short stocks with inadequate CapEx.
+CapEx (capital expenditure) is money spent on acquiring/maintaining fixed assets. EBIT, which is a company's net income before interest and taxes, and short stocks with inadequate CapEx.
 
 **Hint to improve the Alpha**
 
@@ -436,7 +495,7 @@ USA	TOP3000	Fast Expression	0	1	0.01	Sector	On	Off	Verify
 
 
 
-### ***Retained earning**
+### **Retained earning**
 
 **Hypothesis**
 
@@ -454,7 +513,7 @@ Can different neutralization setting improve the alpha performance?
 -ts_rank(retained_earnings,250)
 ################################
 Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	NaN Handling	Unit Handling
-USA	TOP3000	Fast Expression	10	1	0.01	Sector	On	Off	Verify
+USA	TOP3000	Fast Expression	10	1	0.01	Subindustry	On	Off	Verify
 ```
 
 
@@ -483,11 +542,55 @@ USA	TOP3000	Fast Expression	0	1	0.01	Subindustry	On	Off	Verify
 
 
 
-### **Total Risk of a stock**
+### ***Total Risk of a stock**
+
+**Hypothesis:**
+
+Since we are long-short neutral in our alpha, we can further minimize our systemtic risks exposure, thus place long positions on alphas that have more total risk and consequently have possibility to generate more returns.
+
+**Implementation :**
+
+To keep the inherent distribution of total risks intact, we use the zscore operator to place weights on our alpha.
+
+**Hint to improve the Alpha**
+
+Since we are creating an alpha on risk of individual stocks, the alpha may perform well if we filter stocks that are highly correlated to the index. Can you improve the alpha using trade_when operator using the 'correlation_last_60_days_spy' datafield?
+
+```
+SR = systematic_risk_last_60_days;
+USR = unsystematic_risk_last_60_days;
+
+zscore(USR + SR)
+#########################
+Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	NaN Handling	Unit Handling
+USA	TOP3000	Fast Expression	0	1	0.01	Subindustry	On	Off	Verify
+```
 
 
 
+### ***Customers' Web Ranking**
 
+**Hypothesis:**
 
-### **Customers' Web Ranking**
+The higher the instrument's customers rank on PageRank, HITS hub and HITS authority, the more likely these customers would grow in future, which in turn results in growth for the instrument too.
+
+**Implementation :**
+
+Derive an overall ranking of the instruments' customers from the three types of ranking. Focus more on instruments with higher number of customers in each sector, because these instruments are likely to be the larger players in that sector and have more customers with web rankings.
+
+**Hint to improve the Alpha**
+
+This alpha might not perform as well with illiquid stocks (TOP3000 universe), because these stocks, and in turn their customers, would be less well known and would rely less on web rankings. Can this alpha give better performance in liquid universe? (TOP 500 universe)
+
+```
+alpha = 
+rank(-pv13_ustomergraphrank_page_rank) 
+* rank(-pv13_ustomergraphrank_hub_rank) 
+* rank(-pv13_ustomergraphrank_auth_rank);
+
+group_rank(rel_num_cust,sector)>0.7?alpha:alpha*0.5
+########################
+Region	Universe	Language	Decay	Delay	Truncation	Neutralization	Pasteurization	NaN Handling	Unit Handling
+USA	TOP500	Fast Expression	0	1	0.01	Subindustry	On	Off	Verify
+```
 
