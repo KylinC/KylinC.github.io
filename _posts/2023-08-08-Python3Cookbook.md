@@ -7,7 +7,7 @@ author:     Kylin
 header-img: img/python.jpg
 catalog: true
 tags:
-    - programming
+    - coding
 ---
 
 

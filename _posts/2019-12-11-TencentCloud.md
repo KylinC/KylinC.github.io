@@ -7,7 +7,7 @@ author:     Kylin
 header-img: img/Tcloud.jpg
 catalog: true
 tags:
-    - Cloud
+    - Linux
 
 ---
 
