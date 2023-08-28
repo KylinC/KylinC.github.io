@@ -14,5 +14,9 @@ tags:
 
 [TOC]
 
+ACL 23
+
+> PETALS: a system for inference and fine-tuning of large models collaboratively by joining the resources of multiple parties。
+
 
 
