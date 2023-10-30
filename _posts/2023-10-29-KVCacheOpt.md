@@ -27,7 +27,7 @@ tags:
 
 
 
-### Attention 机制改进
+### Attention 机制修改
 
 #### 减少Head
 
@@ -52,12 +52,20 @@ LongFormer
 - [Efficient Streaming Language Models with Attention Sinks](https://arxiv.org/abs/2309.17453)
 
 > arxiv 23.09
+>
+> refer to https://kylinchen.cn/2023/10/29/StreamingLM/
+
+注意力集中在头尾，所以咱 tokens 保留头尾的就好
+
+<img src="https://kylinhub.oss-cn-shanghai.aliyuncs.com/image-20231029224004708.png" alt="image-20231029224004708" style="zoom:43%;" />
 
 - [LM-INFINITE: SIMPLE ON-THE-FLY LENGTH GENERALIZATION FOR LARGE LANGUAGE MODELS](https://arxiv.org/pdf/2308.16137.pdf) 
 
 > arxiv 23.10 
 
+同 StreamingLM，本质上就是保留头尾，给出Λ-shaped attention mask
 
+<img src="https://kylinhub.oss-cn-shanghai.aliyuncs.com/image-20231030220757107.png" alt="image-20231030220757107" style="zoom:90%;" />
 
 #### Sparse Attention
 
@@ -71,7 +79,9 @@ LongFormer
 
 
 
-### 储存优化
+### 计算-储存优化
+
+​                                                                                                                                                                                                                                                                                                                                                       
 
 - [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://arxiv.org/pdf/2309.06180.pdf)
 
@@ -81,11 +91,15 @@ LongFormer
 
 
 
-### 计算优化
-
-- 
 
 
+- [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://arxiv.org/abs/2205.14135)
 
+> 
 
+通过 tiling 和 recomputation 等策略减少 HBM 读写，达到：1）加速，2）节约内存
+
+<img src="https://kylinhub.oss-cn-shanghai.aliyuncs.com/04.png" alt="04" style="zoom:80%;" />
+
+- [FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning](https://tridao.me/publications/flash2/flash2.pdf)
 
