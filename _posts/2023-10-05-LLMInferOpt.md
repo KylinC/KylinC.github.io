@@ -60,6 +60,8 @@ MLC LLM 的主要工作流基于 Apache TVM Unity，通过扩展 TVM 后端使�
 - 非结构化剪枝允许删除任何权重或连接，因此它不保留原始网络架构。 非结构化剪枝通常不适用于现代硬件，并且不会带来实际的推理加速。
 - 结构化剪枝旨在维持某些元素为零的密集矩阵乘法形式。 他们可能需要遵循某些模式限制才能使用硬件内核支持的内容。 当前的主流方法关注结构化剪枝，以实现 Transformer 模型的高稀疏性。
 
+![截屏2023-10-11 15.36.41](http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2023-10-11%2015.36.41.png)
+
 
 
 #### 2.2 Quantization
@@ -105,6 +107,8 @@ MLC LLM 的主要工作流基于 Apache TVM Unity，通过扩展 TVM 后端使�
 - [FlexFlow](https://link.zhihu.com/?target=https%3A//github.com/flexflow/FlexFlow)
 - [LiBai](https://link.zhihu.com/?target=https%3A//github.com/Oneflow-Inc/libai)
 - [AlpaServe](https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/2302.11665.pdf)
+
+
 
 #### 3.3 Pipeline Parallelism
 
@@ -199,6 +203,6 @@ Graphcore C600 IPU处理器PCIe卡是针对机器学习推理应用的高性能�
 
 BR100是由壁仞科技发布自主研发的首款通用GPU芯片，其16位浮点算力达到1000T以上、8位定点算力达到2000T以上，单芯片峰值算力达到PFlops（1PFlops等于1000万亿次浮点指令/秒）级别。其与 A100、 H100 的参数对比如下所示：
 
-![image-20231011080944792](https://kylinhub.oss-cn-shanghai.aliyuncs.com/image-20231011080944792.png)
+<img src="https://kylinhub.oss-cn-shanghai.aliyuncs.com/image-20231011080944792.png" alt="image-20231011080944792" style="zoom:67%;" />
 
 目前未找到公开的在 LLM 方面的推理性能数据。
