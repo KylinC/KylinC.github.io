@@ -62,10 +62,42 @@ Solution:
 
 
 
-#### 4.
+#### 4. Birthday problem  
 
-#### 5.
+You and your colleagues know that your boss A's birthday is one of the following 10 dates: Mar 4, Mar 5, Mar 8 Jun 4, Jun 7 Sep 1, Sep 5 Dec 1, Dec 2, Dec 8
 
-#### 6.
+A told you only the month of his birthday, and told your colleague C only the day. After that, you first said: "I don't know A's birthday; C doesn't know it either." After hearing what you said, C replied: "I didn't know A's birthday, but now I know it." You smiled and said: "Now I know it, too." After looking at the 10 dates and hearing your comments, your administrative assistant wrote down A's birthday without asking any questions. So what did the assistant write?  
+
+> 你和你的同事知道你的老板 A 的生日是以下 10 个日期之一：3 月 4 日、3 月 5 日、3 月 8 日6月4日，6月7日9月1日, 9月5日12 月1日、12 月 2 日、12 月 8 日A只告诉你他生日的月份，而只告诉你的同事C生日那天。之后，你先说：“我不知道A的生日，C也不知道。”听完你的话，C回答说：“以前不知道A的生日，现在知道了。”你笑着说：“现在我也知道了。” 在查看了 10 个日期并听取了您的意见后，您的行政助理在没有询问任何问题的情况下写下了 A 的生日。那么助理写了什么？
+
+Solution:
+
+1) I don't know A's birthday; C doesn't know it either：不能是独立号月份，因此是Mar和Sep
+
+2）I didn't know A's birthday, but now I know it：Mar和Sep里面的独立号，是1，4，8
+
+3）Now I know it, too：4和8都在Mar，因此是Sep，因此是Sep 1
+
+
+
+#### 5. Card game  
+
+A casino offers a card game using a normal deck of 52 cards. The rule is that you turn over two cards each time. For each pair, if both are black, they go to the dealer's pile; if both are red, they go to your pile; if one black and one red, they are discarded. The process is repeated until you two go through all 52 cards. If you have more cards in your pile, you win $100; otherwise (including ties) you get nothing. The casino allows you to negotiate the price you want to pay for the game. How much would you be willing to pay to play this game?
+
+> 赌场提供使用一副普通的 52 张牌的纸牌游戏。 规则是每次翻两张牌。 对于每一对，如果都是黑色，则它们进入庄家堆； 如果两者都是红色的，它们就会进入你的堆； 如果一黑一红，则丢弃。 重复该过程，直到你们两个完成所有 52 张卡片。 如果您的牌堆中有更多牌，您将赢得100 美元； 否则（包括关系）你什么也得不到。 赌场允许您协商要为游戏支付的价格。你愿意花多少钱玩这个游戏？
+
+Solution: 
+
+最终牌堆数目肯定一致，一分钱别出！
+
+
+
+#### 6. Burning ropes  
+
+You have two ropes, each of which takes 1 hour to bum. But either rope has different densities at different points, so there's no guarantee of consistency in the time it takes different sections within the rope to bum. How do you use these two ropes to measure 45 minutes?  
+
+
+
+
 
 #### 7.
