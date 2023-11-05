@@ -96,8 +96,17 @@ Solution:
 
 You have two ropes, each of which takes 1 hour to bum. But either rope has different densities at different points, so there's no guarantee of consistency in the time it takes different sections within the rope to bum. How do you use these two ropes to measure 45 minutes?  
 
+> 你有两根绳子，每根绳子燃烧需要1 小时。 但是任何一根绳子在不同点都有不同的密度，所以不能保证绳子内不同部分燃烧的时间的一致性。你如何用这两条绳子来测量 45 分钟？
+
+Solution:
+
+<img src="https://kylinhub.oss-cn-shanghai.aliyuncs.com/e4c8ea4f5e3b920ca18efc0caec6997.jpg" alt="e4c8ea4f5e3b920ca18efc0caec6997" style="zoom:20%;" />
 
 
 
+#### 7. Trailing zeros  
 
-#### 7.
+How many trailing zeros are there in 100! (factorial of 100)?  
+
+> 100! 中有多少个尾随零
+
