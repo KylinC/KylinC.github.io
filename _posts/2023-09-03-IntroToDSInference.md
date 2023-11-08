@@ -1,6 +1,6 @@
 ---
 dlayout:    post
-title:      DeepSpeed Inference Zero
+title:      DeepSpeed Inference
 subtitle:   Enabling Efficient Inference of Transformer Models at Unprecedented Scale
 date:       2023-9-3
 author:     Kylin

@@ -1,7 +1,7 @@
 ---
 dlayout:    post
-title:      DeepSpeed Inference Zero
-subtitle:   Enabling Efficient Inference of Transformer Models at Unprecedented Scale
+title:      Zero Offload
+subtitle:   Democratizing Billion-Scale Model Training
 date:       2023-9-3
 author:     Kylin
 header-img: img/bg-owncloud.jpg
