@@ -14,5 +14,6 @@ tags:
 
 [TOC]
 
-### Abs
-
+> flash attention 公式推导：https://zhuanlan.zhihu.com/p/638468472
+>
+> flash attention v1 v2 差异：https://zhuanlan.zhihu.com/p/665170554
