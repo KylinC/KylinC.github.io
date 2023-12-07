@@ -14,11 +14,6 @@ tags:
 
 [TOC]
 
-<<<<<<< HEAD
-> flash attention 公式推导：https://zhuanlan.zhihu.com/p/638468472
->
-> flash attention v1 v2 差异：https://zhuanlan.zhihu.com/p/665170554
-=======
 ### Abs
 
 目标：reduce the number of memory reads/writes between GPU high bandwidth memory (HBM) and GPU on-chip SRAM
@@ -61,4 +56,3 @@ flash attention 分块softmax算法证明[^1]
 [^1]: 从 FlashAttention 到 PagedAttention, 如何进一步优化 Attention 性能 https://zhuanlan.zhihu.com/p/638468472
 [^2]: FlashAttention核心逻辑以及V1 V2差异总结 https://zhuanlan.zhihu.com/p/665170554
 
->>>>>>> 996689ffbd080e7009280ead38e8cbf15c1dff81
