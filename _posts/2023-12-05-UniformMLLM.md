@@ -81,6 +81,22 @@ Emu is then end-to-end trained with a unified **objective** of **classifying the
 
 <img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/20231205173628.png" alt="截屏2023-12-05 17.36.13" style="zoom:50%;" />
 
+### Fuyu
+
+It’s designed from the ground up for **digital agents**, so it can support arbitrary image resolutions, answer questions about graphs and diagrams, answer UI-based questions, and do **fine-grained** localization on screen images.
+
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/20231208155349.png" alt="截屏2023-12-08 15.53.30" style="zoom:47%;" />
+
+Fuyu的几个特点：
+
+- with no specialized image encoder
+- Image patches are linearly projected（without codebook）
+- **remove image-specific position embeddings** and feed in as many image tokens as necessary in raster-scan order. To tell the model when a line has broken, we simply use a special image-newline character.
+
+
+
+### 
+
 
 
 ### Reference
@@ -94,4 +110,8 @@ Emu is then end-to-end trained with a unified **objective** of **classifying the
 [^7]: Peng Z, Wang W, Dong L, et al. Kosmos-2: Grounding Multimodal Large Language Models to the World[J]. arXiv preprint arXiv:2306.14824, 2023.
 [^8]: Aghajanyan A, Huang B, Ross C, et al. Cm3: A causal masked multimodal model of the internet[J]. arXiv preprint arXiv:2201.07520, 2022.
 [^9]: Gafni O, Polyak A, Ashual O, et al. Make-a-scene: Scene-based text-to-image generation with human priors[C]//European Conference on Computer Vision. Cham: Springer Nature Switzerland, 2022: 89-106.
+
+[^10]: Fuyu-8B: A Multimodal Architecture for AI Agents [https://www.adept.ai/blog/fuyu-8b](Fuyu-8B: A Multimodal Architecture for AI Agents).
+
+
 
