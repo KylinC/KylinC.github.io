@@ -18,19 +18,32 @@ tags:
 
 [TOC]
 
-#### Mathematic
-
-##### 参数重整化
-
-#### VAE
-
-x是由一个隐变量z生成的
 
 
+### limitations
 
-<img src="https://kylinhub.oss-cn-shanghai.aliyuncs.com/generative-overview.png" alt="img" style="zoom:37%;" />
+- GAN：unstable training and less diversity in generation due to their adversarial training nature.
+- VAE：relies on a surrogate loss. 
+- Flow-based models：have to use specialized architectures to construct reversible transform.
 
 
+
+<img src="https://kylinhub.oss-cn-shanghai.aliyuncs.com/generative-overview.png" alt="img" style="zoom:17%;" />
+
+
+
+### Basics 
+
+
+
+
+
+
+
+### Reference
+
+[^1]: What are Diffusion Models? [https://lilianweng.github.io/posts/2021-07-11-diffusion-models/](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/).
+[^2]: 扩散模型 Diffusion Models - 原理篇 https://zhuanlan.zhihu.com/p/548112711 
 
 
 
