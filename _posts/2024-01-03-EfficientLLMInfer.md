@@ -18,9 +18,7 @@ tags:
 
 
 
-
-
- ### Challenge
+### Challenge
 
 LLM deployment: computational intensity, memory consumption
 
@@ -141,7 +139,7 @@ cloud computing：traditional
 
 edge computing：allows for faster response times and reduced bandwidth usage by processing data closer to the source, but it also poses challenges in terms of **limited computational resources and storage capacity**.
 
-hybrid computing (combining cloud and edge computing) [^9]：balanced approach but requires advanced **management** to distribute computational tasks efficiently.
+\*\*\* hybrid computing (combining cloud and edge computing) [^9]：balanced approach but requires advanced **management** to distribute computational tasks efficiently. 结合隐私数据的 hybrid computing。
 
 decentralized computing：Decentralized computing presents a promising avenue for crowdsourcing computational resources, but it also brings additional considerations regarding **data privacy and security** [^10][^11]. 
 
@@ -199,7 +197,7 @@ online learning
 
 ### Reference
 
-[^1]: 2022. NVIDIA H100 Tensor Core GPU Architecture. https://resources.nvidia.com/en-us-tensor-core/gtc22-whitepaper-hopper. Accessed on: 2023-11-25.
+[^1]: NVIDIA H100 Tensor Core GPU Architecture. https://resources.nvidia.com/en-us-tensor-core/gtc22-whitepaper-hopper. Accessed on: 2023-11-25.
 [^2]: Kao, Sheng-Chun, et al. "FLAT: An Optimized Dataflow for Mitigating Attention Bottlenecks." *Proceedings of the 28th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 2*. 2023.
 [^3]: Tao Ge, Heming Xia, Xin Sun, Si-Qing Chen, and Furu Wei. 2022. Lossless acceleration for Seq2seq generation with aggressive decoding. arXiv preprint arXiv:2205.10350 (2022).
 [^4]:  Yichao Fu, Peter Bailis, Ion Stoica, and Hao Zhang. 2023. Breaking the Sequential Dependency of LLM Inference Using Lookahead Decoding. https://lmsys.org/blog/2023-11-21-lookahead-decoding/
