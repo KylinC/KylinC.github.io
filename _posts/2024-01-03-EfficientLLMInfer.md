@@ -2,7 +2,7 @@
 dlayout:    post
 title:      Towards Efficient Generative Large Language Model Serving A Survey from Algorithms to Systems
 subtitle:   高效LLM推理算法&系统综述
-date:       2024-1-3
+date:       2024-01-03
 author:     Kylin
 header-img: img/LLMInfer.jpg
 catalog: true
@@ -199,13 +199,11 @@ online learning
 
 ### Reference
 
-
-
 [^1]: 2022. NVIDIA H100 Tensor Core GPU Architecture. https://resources.nvidia.com/en-us-tensor-core/gtc22-whitepaper-hopper. Accessed on: 2023-11-25.
-[^2 ]: Kao, Sheng-Chun, et al. "FLAT: An Optimized Dataflow for Mitigating Attention Bottlenecks." *Proceedings of the 28th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 2*. 2023.
-[^3 ]: Tao Ge, Heming Xia, Xin Sun, Si-Qing Chen, and Furu Wei. 2022. Lossless acceleration for Seq2seq generation with aggressive decoding. arXiv preprint arXiv:2205.10350 (2022).
-[^4 ]:  Yichao Fu, Peter Bailis, Ion Stoica, and Hao Zhang. 2023. Breaking the Sequential Dependency of LLM Inference Using Lookahead Decoding. https://lmsys.org/blog/2023-11-21-lookahead-decoding/
-[^5 ]: In Gim, Guojun Chen, Seung-seob Lee, Nikhil Sarda, Anurag Khandelwal, and Lin Zhong. 2023. Prompt Cache: Modular Attention Reuse for Low-Latency Inference. arXiv preprint arXiv:2311.04934 (2023).
+[^2]: Kao, Sheng-Chun, et al. "FLAT: An Optimized Dataflow for Mitigating Attention Bottlenecks." *Proceedings of the 28th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 2*. 2023.
+[^3]: Tao Ge, Heming Xia, Xin Sun, Si-Qing Chen, and Furu Wei. 2022. Lossless acceleration for Seq2seq generation with aggressive decoding. arXiv preprint arXiv:2205.10350 (2022).
+[^4]:  Yichao Fu, Peter Bailis, Ion Stoica, and Hao Zhang. 2023. Breaking the Sequential Dependency of LLM Inference Using Lookahead Decoding. https://lmsys.org/blog/2023-11-21-lookahead-decoding/
+[^5]: In Gim, Guojun Chen, Seung-seob Lee, Nikhil Sarda, Anurag Khandelwal, and Lin Zhong. 2023. Prompt Cache: Modular Attention Reuse for Low-Latency Inference. arXiv preprint arXiv:2311.04934 (2023).
 [^6]: Huiqiang Jiang, Qianhui Wu, Xufang Luo, Dongsheng Li, Chin-Yew Lin, Yuqing Yang, and Lili Qiu. 2023. LongLLM- Lingua: Accelerating and Enhancing LLMs in Long Context Scenarios via Prompt Compression. arXiv preprint arXiv:2310.06839 (2023).
 [^7]:PengXu, WeiPing, XianchaoWu, LawrenceMcAfee, ChenZhu, ZihanLiu, SandeepSubramanian, EvelinaBakhturina, Mohammad Shoeybi, and Bryan Catanzaro. 2023. Retrieval meets Long Context Large Language Models. arXiv preprint arXiv:2310.03025 (2023).
 [^8]: Vukasin Bozic, Danilo Dordevic, Daniele Coppola, and Joseph Thommes. 2023. Rethinking Attention: Exploring Shallow Feed-Forward Neural Networks as an Alternative to Attention Layers in Transformers. arXiv preprint arXiv:2311.10642 (2023).
@@ -215,13 +213,13 @@ online learning
 [^12]: Xupeng Miao, Chunan Shi, Jiangfei Duan, Xiaoli Xi, Dahua Lin, Bin Cui, and Zhihao Jia. 2024. SpotServe: Serving Generative Large Language Models on Preemptible Instances. Proceedings of ASPLOS Conference (2024).
 [^13]: Hao Liu, Matei Zaharia, and Pieter Abbeel. 2023. Ring Attention with Blockwise Transformers for Near-Infinite Context. arXiv preprint arXiv:2310.01889 (2023).
 [^14]: DeepakNarayanan, KeshavSanthanam, PeterHenderson, RishiBommasani, TonyLee, andPercyLiang. 2023.Cheaply Estimating Inference Efficiency Metrics for Autoregressive Transformer Models. In Thirty-seventh Conference on Neural Information Processing Systems.
-[^15 ]: Youhe Jiang, Ran Yan, Xiaozhe Yao, Beidi Chen, and Binhang Yuan. 2023. HexGen: Generative Inference of Foundation Model over Heterogeneous Decentralized Environment. arXiv preprint arXiv:2311.11514 (2023).
+[^15]: Youhe Jiang, Ran Yan, Xiaozhe Yao, Beidi Chen, and Binhang Yuan. 2023. HexGen: Generative Inference of Foundation Model over Heterogeneous Decentralized Environment. arXiv preprint arXiv:2311.11514 (2023).
 [^16]: Zhenheng Tang, Yuxin Wang, Xin He, Longteng Zhang, Xinglin Pan, Qiang Wang, Rongfei Zeng, Kaiyong Zhao, Shaohuai Shi, Bingsheng He, et al. 2023. FusionAI: Decentralized Training and Deploying LLMs with Massive Consumer-Level GPUs. arXiv preprint arXiv:2309.01172 (2023).
 [^17]: Alexander Borzunov, Max Ryabinin, Artem Chumachenko, Dmitry Baranchuk, Tim Dettmers, Younes Belkada, PavelSamygin, and Colin Raffel. 2023. Distributed Inference and Fine-tuning of Large Language Models Over The Internet. arXiv preprint arXiv:2312.08361 (2023).
 [^18]: LightLLM. https://github.com/ModelTC/lightllm. Commit: 84671a7, Accessed on: 2023-11-25.
-[^19 ]: Xupeng Miao, Gabriele Oliaro, Zhihao Zhang, Xinhao Cheng, Zeyu Wang, Rae Ying Yee Wong, Zhuoming Chen, Daiyaan Arfeen, Reyna Abhyankar, and Zhihao Jia. 2023. SpecInfer: Accelerating Generative LLM Serving with Speculative Inference and Token Tree Verification. arXiv preprint arXiv:2305.09781 (2023).
+[^19]: Xupeng Miao, Gabriele Oliaro, Zhihao Zhang, Xinhao Cheng, Zeyu Wang, Rae Ying Yee Wong, Zhuoming Chen, Daiyaan Arfeen, Reyna Abhyankar, and Zhihao Jia. 2023. SpecInfer: Accelerating Generative LLM Serving with Speculative Inference and Token Tree Verification. arXiv preprint arXiv:2305.09781 (2023).
 [^20]: Gunasekaran, Jashwant Raj, et al. "Cocktail: A multidimensional optimization for model serving in cloud." *19th USENIX Symposium on Networked Systems Design and Implementation (NSDI 22)*. 2022.
 [^21]: DeepSpeed-FastGen. https://github.com/microsoft/DeepSpeed/tree/master/blogs/deepspeed-fastgen. Accessed on: 2023-11-25.
 [^22]: Yunho Jin, Chun-Feng Wu, David Brooks, and Gu-Yeon Wei. 2023. S3: Increasing GPU Utilization during Generative Inference for Higher Throughput. arXiv preprint arXiv:2306.06000 (2023).
 
-[^23 ]: Ahsan Ali, Riccardo Pinciroli, Feng Yan, and Evgenia Smirni. 2020. Batch: machine learning inference serving on serverless platforms with adaptive batching. In SC20: International Conference for High Performance Computing, Networking, Storage and Analysis. IEEE, 1–15.
+[^23]: Ahsan Ali, Riccardo Pinciroli, Feng Yan, and Evgenia Smirni. 2020. Batch: machine learning inference serving on serverless platforms with adaptive batching. In SC20: International Conference for High Performance Computing, Networking, Storage and Analysis. IEEE, 1–15.
