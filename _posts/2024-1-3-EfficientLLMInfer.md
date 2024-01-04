@@ -91,7 +91,7 @@ LightLLM[^18] takes a more granular token-level memory management mechanism to f
 
 ##### Request Scheduling
 
-调度在传统模型serving中就已经存在，涉及 aspects：dynamic batching, preemption, priority, swapping, model selection [^22] (集成模型选择，需要满足调度和准确率约束), cost efficiency, load balancing and resource allocation.
+调度在传统模型serving中就已经存在，涉及 aspects：dynamic batching[^23] (dynamic batching 最开始是来自于一个serveless的工作), preemption, priority, swapping, model selection [^22] (集成模型选择，需要满足调度和准确率约束), cost efficiency, load balancing and resource allocation.
 
 LLM中特有的challenges：massive model size、iterative autoregressive decoding mechanism、unknown variable output length、state management for context information
 
@@ -220,3 +220,4 @@ online learning
 [^21]: DeepSpeed-FastGen. https://github.com/microsoft/DeepSpeed/tree/master/blogs/deepspeed-fastgen. Accessed on: 2023-11-25.
 [^22]: Yunho Jin, Chun-Feng Wu, David Brooks, and Gu-Yeon Wei. 2023. S3: Increasing GPU Utilization during Generative Inference for Higher Throughput. arXiv preprint arXiv:2306.06000 (2023).
 
+[^23 ]: Ahsan Ali, Riccardo Pinciroli, Feng Yan, and Evgenia Smirni. 2020. Batch: machine learning inference serving on serverless platforms with adaptive batching. In SC20: International Conference for High Performance Computing, Networking, Storage and Analysis. IEEE, 1–15.
