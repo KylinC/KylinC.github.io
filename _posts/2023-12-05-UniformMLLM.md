@@ -155,7 +155,7 @@ We replace the linear projections of the cross-attention modules in Stable Diffu
 
 
 
-#### CoDi-2***
+#### CoDi-2
 
 <img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/20231212111615.png" alt="截屏2023-12-12 11.16.06" style="zoom:50%;" />
 
