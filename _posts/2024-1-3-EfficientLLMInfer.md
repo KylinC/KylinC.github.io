@@ -18,6 +18,8 @@ tags:
 
 
 
+
+
  ### Challenge
 
 LLM deployment: computational intensity, memory consumption
@@ -196,6 +198,8 @@ online learning
 
 
 ### Reference
+
+
 
 [^1]: 2022. NVIDIA H100 Tensor Core GPU Architecture. https://resources.nvidia.com/en-us-tensor-core/gtc22-whitepaper-hopper. Accessed on: 2023-11-25.
 [^2 ]: Kao, Sheng-Chun, et al. "FLAT: An Optimized Dataflow for Mitigating Attention Bottlenecks." *Proceedings of the 28th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 2*. 2023.
