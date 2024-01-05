@@ -2,7 +2,7 @@
 dlayout:    post
 title:      Gosper's Hack
 subtitle:   Gosper's Hack原理解析
-date:       2023-01-04
+date:       2024-01-04
 author:     Kylin
 header-img: img/Gosper.jpg
 catalog: true
@@ -46,5 +46,4 @@ $$O(C_n^k)$$
 
 [^1]: http://programmingforinsomniacs.blogspot.com/2018/03/gospers-hack-explained.html
 [^2]: 算法学习笔记(75): Gosper's Hack https://zhuanlan.zhihu.com/p/360512296
-
 
