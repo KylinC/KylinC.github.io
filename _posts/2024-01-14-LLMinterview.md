@@ -59,4 +59,3 @@ Encoder-Only、Encoder-Decoder、Decoder-Only
 [^1]: Mainstream architecture of LLMs https://kylinchen.cn/2023/12/04/whichLLM/
 
 
-
