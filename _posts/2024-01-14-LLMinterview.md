@@ -42,6 +42,10 @@ Encoder-Only、Encoder-Decoder、Decoder-Only
 >
 > 至于为什么现在decoder-only比较火，其实有一点历史原因。
 
+#### 2、GPT-2参数量怎么计算？（ByteDance一面）
+
+> 参考 
+
 
 
 
