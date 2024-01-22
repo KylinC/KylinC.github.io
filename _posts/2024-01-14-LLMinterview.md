@@ -2,7 +2,7 @@
 dlayout:    post
 title:      LLM 常见面试问题
 subtitle:   Interview for LLM
-date:       2023-01-14
+date:       2024-01-14
 author:     Kylin
 header-img: img/llminterview.jpg
 catalog: true
