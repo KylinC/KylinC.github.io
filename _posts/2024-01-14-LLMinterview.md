@@ -2,12 +2,12 @@
 dlayout:    post
 title:      LLM 常见面试问题
 subtitle:   Interview for LLM
-date:       2024-01-14
+date:       2024-01-22
 author:     Kylin
 header-img: img/llminterview.jpg
 catalog: true
 tags:
-    - nlp
+    - job
 ---
 
 
@@ -42,9 +42,11 @@ Encoder-Only、Encoder-Decoder、Decoder-Only
 >
 > 至于为什么现在decoder-only比较火，其实有一点历史原因。
 
-#### 2、GPT-2参数量怎么计算？（ByteDance一面）
+#### 2、GPT-2参数量怎么计算？（ByteDance-1）
 
-> 参考 
+> 参考[^2]
+
+#### 3、Lora原理？Lora的参数量计算？Lora参数是包含Attention还是MLP？（ByteDance-1）
 
 
 
@@ -52,7 +54,23 @@ Encoder-Only、Encoder-Decoder、Decoder-Only
 
 ### 多模态篇
 
+#### 1、为什么MLLM普遍都是2阶段训练，而不是1阶段？（ByteDance-1）
 
+主要是从数据上来考虑，pretrain阶段的数据是多样的，而instructionTuning阶段的数据只是特定任务的（i.e., 评论生成）
+
+
+
+#### 2、为什么不将ViT加入到MLLM训练过程中？ViT的参数量以及显存占用量？（ByteDance-1）
+
+ViT是通过CLIP进行对比学习得到的，有**跨模态理解能力**和**zero-shot**的能力。
+
+
+
+
+
+#### 3、几种MLLM的架构极其特点？优势？（ByteDance-1）
+
+> 参考[^3]
 
 
 
@@ -62,4 +80,5 @@ Encoder-Only、Encoder-Decoder、Decoder-Only
 
 [^1]: Mainstream architecture of LLMs https://kylinchen.cn/2023/12/04/whichLLM/
 
-
+[^2]: GPT2参数量准确计算. https://kylinchen.cn/2024/01/22/LLMcompute/
+[^3]: MLLM 经典结构详解. https://kylinchen.cn/2024/01/22/MultiModalLLMStructure/
