@@ -46,7 +46,11 @@ Encoder-Only、Encoder-Decoder、Decoder-Only
 
 > 参考[^2]
 
-#### 3、Lora原理？Lora的参数量计算？Lora参数是包含Attention还是MLP？（ByteDance-1）
+#### 3、Lora原理？Lora的参数量计算？Lora参数是包含Attention还是MLP？Lora参数的初始化？（ByteDance-1）
+
+
+
+#### 4、LLM预训练参数的初始化？
 
 
 
