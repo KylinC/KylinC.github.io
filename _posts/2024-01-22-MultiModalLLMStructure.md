@@ -52,6 +52,12 @@ tags:
 
 <img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2024-01-22%2012.46.52.png" alt="截屏2024-01-22 12.46.52" style="zoom:57%;" />
 
+#### code-review
+
+lora用于q_proj|v_proj，算了一下，参数量2M
+
+
+
 
 
 ### Reference

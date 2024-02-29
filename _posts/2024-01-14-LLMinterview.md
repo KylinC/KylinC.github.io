@@ -54,6 +54,16 @@ Encoder-Only、Encoder-Decoder、Decoder-Only
 
 
 
+#### 5、Attention有哪几种？位置编码有哪几种？
+
+
+
+#### 6、Speculative Decoding 原文是怎么执行的？正确性保证？
+
+
+
+
+
 
 
 ### 多模态篇
