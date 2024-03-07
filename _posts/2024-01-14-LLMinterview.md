@@ -62,6 +62,14 @@ Encoder-Only、Encoder-Decoder、Decoder-Only
 
 
 
+#### 7、BPE算法
+
+中文BPE算法[^4] 
+
+
+
+#### 8、扩充词表
+
 
 
 
@@ -96,3 +104,5 @@ ViT是通过CLIP进行对比学习得到的，有**跨模态理解能力**和**z
 
 [^2]: GPT2参数量准确计算. https://kylinchen.cn/2024/01/22/LLMcompute/
 [^3]: MLLM 经典结构详解. https://kylinchen.cn/2024/01/22/MultiModalLLMStructure/
+[^4]: 使用 BPE 原理进行汉语字词切分. https://www.less-bug.com/posts/using-bpe-principle-for-chinese-word-segmentation-plate/
+

@@ -98,6 +98,7 @@ print(f"{res/10**9}B")
 
 [^1]: 分析transformer模型的参数量、计算量、中间激活、KV cache. https://zhuanlan.zhihu.com/p/624740065
 [^2]: GPT（四）GPT2参数量剖析 https://zhuanlan.zhihu.com/p/640501114
+[^3 ]: 利用huggingface深入理解GPT模型结构. https://zhuanlan.zhihu.com/p/617643272
 
 
 
