@@ -159,6 +159,18 @@ Advances：主要是自监督了视觉信号，这在传统的MLLM中不常见
 
 
 
+### Training
+
+#### Pretraining
+
+During the pre-training phase, the LLM remains constant while both the vision encoder and Partial LoRA are fine- tuned to align the visual tokens with the LLM.
+
+#### SFT
+
+During this stage, we jointly fine- tune the vision encoder, LLM, and Partial LoRA.
+
+
+
 ### Reference
 
 [^1]: Dong, Xiaoyi, et al. "InternLM-XComposer2: Mastering free-form text-image composition and comprehension in vision-language large model." *arXiv preprint arXiv:2401.16420* (2024).
