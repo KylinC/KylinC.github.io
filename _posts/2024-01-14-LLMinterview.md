@@ -53,11 +53,26 @@ Encoder-Only、Encoder-Decoder、Decoder-Only
 #### 4、LLM预训练参数的初始化？
 
 
+#### 5、Attention有哪几种？位置编码有哪几种？
 
-#### 5、ROPE
+
+
+#### 6、Speculative Decoding 原文是怎么执行的？正确性保证？
+
+
+
+#### 7、BPE算法
+
+中文BPE算法[^4] 
+
+
+
+#### 8、扩充词表
+
+
+#### 9、ROPE
 
 > 参考[^4] 
-
 
 
 ### 多模态篇
@@ -91,4 +106,5 @@ ViT是通过CLIP进行对比学习得到的，有**跨模态理解能力**和**z
 [^2]: GPT2参数量准确计算. https://kylinchen.cn/2024/01/22/LLMcompute/
 [^3]: MLLM 经典结构详解. https://kylinchen.cn/2024/01/22/MultiModalLLMStructure/
 [^4]: Transformer中的位置编码(Position Encoding). https://0809zheng.github.io/2022/07/01/posencode.html
+[^5]: 使用 BPE 原理进行汉语字词切分. https://www.less-bug.com/posts/using-bpe-principle-for-chinese-word-segmentation-plate/
 

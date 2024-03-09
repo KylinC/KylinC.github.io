@@ -16,7 +16,7 @@ tags:
 
 ### Abs
 
-问题：Existing LLM serving systems use run-to-completion processing for inference jobs, which suffers from head-of-line blocking and long JCT.
+问题：Existing LLM serving systems use run-to-completion（即使是Orca也是FCFS的服务[^1]） processing for inference jobs, which suffers from **head-of-line blocking** and long JCT.
 
 > JCT是从提交作业（或任务、请求等）到作业完成并得到结果的总时间。这个时间可能包括了等待时间、执行时间、通信时间、IO时间等多个组成部分。通过优化系统设计和算法，可以降低JCT，从而提高系统的吞吐量和用户满意度。
 
@@ -79,3 +79,6 @@ MLFQ的KV-cache占用比传统系统高很多
 
 
 
+### Reference
+
+[^1]: [Paper Reading] 针对 LLM Inference 的调度: Fast Distributed Inference Serving for Large Language Models. https://zhuanlan.zhihu.com/p/648759542
