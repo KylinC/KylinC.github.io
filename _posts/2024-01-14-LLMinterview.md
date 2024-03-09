@@ -54,6 +54,10 @@ Encoder-Only、Encoder-Decoder、Decoder-Only
 
 
 
+#### 5、ROPE
+
+> 参考[^4] 
+
 
 
 ### 多模态篇
@@ -86,3 +90,5 @@ ViT是通过CLIP进行对比学习得到的，有**跨模态理解能力**和**z
 
 [^2]: GPT2参数量准确计算. https://kylinchen.cn/2024/01/22/LLMcompute/
 [^3]: MLLM 经典结构详解. https://kylinchen.cn/2024/01/22/MultiModalLLMStructure/
+[^4]: Transformer中的位置编码(Position Encoding). https://0809zheng.github.io/2022/07/01/posencode.html
+
