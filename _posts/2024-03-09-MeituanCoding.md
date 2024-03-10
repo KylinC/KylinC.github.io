@@ -18,8 +18,6 @@ tags:
 
 #### Q1
 
-
-
 MT 是美团的缩写，因此小美很喜欢这两个字母。现在小美拿到了一个仅由大写字母组成字符串，她可以最多操作k次，每次可以修改任意一个字符。小美想知道，操作结束后最多共有多少个'M' 和'T' 字符?
 **输入**
 输入两个正整数n和k，代表字符串长度和操作次数第二行输入一个长度为n的、仅由大写字母组成的字符串。
@@ -53,6 +51,24 @@ MTUAN
 
 
 
+##### A1
+
+```python
+import sys
+
+n,k = map(int,sys.stdin.readline().split())
+s = str(sys.stdin.readline())
+
+count = 0
+for c in s:
+    if c=='M' or c=='T':
+        count += 1
+
+print(min(count+k,n))
+```
+
+
+
 #### Q2
 
 **题目描述**
@@ -77,7 +93,7 @@ MTUAN
 
 ```
 3 2
-10 3
+1 0 3
 1 2
 4 4
 ```
@@ -94,6 +110,25 @@ MTUAN
 只有第二个元素是未知的。第一次询问，数组最小的和是1+1=3=5，最大的和是1+2+3=6
 
 第二次询问，显然数组的元素和必然为 8
+
+
+
+##### A2
+
+```python
+import sys
+
+n,q = map(int,sys.stdin.readline().split())
+array = list(map(int,sys.stdin.readline().split()))
+count = 0
+for a in array:
+    if not a:
+        count += 1
+s = sum(array)
+for i in range(q):
+    l,r = map(int,sys.stdin.readline().split())
+    print(s+count*l,s+count*r)
+```
 
 
 
@@ -130,10 +165,41 @@ MTUAN
 
 
 
+##### A3
+
+```python
+import sys
+
+n = int(sys.stdin.readline())
+
+dp = [[0]*(n+1) for _ in range(n+1)]
+
+for i in range(1,n+1):
+    s = list(map(int,list(sys.stdin.readline().strip())))
+    su = 0
+    for j in range(1,n+1):
+        su += s[j-1]
+        dp[i][j] = dp[i-1][j]+su
+
+for i in range(1,n+1):
+    res = 0
+    if i%2:
+        print(0)
+    else:
+        for j in range(1,n+1):
+            for k in range(1,n+1):
+                num = dp[j][k]-dp[j][k-i]-dp[j-i][k]+dp[j-i][k-i]
+                if num == i*i//2:
+                    res += 1
+        print(res)
+```
+
+
+
 #### Q4
 
 **题目描述**
-小美拿到了一个大小为n的数组，她希望删除一个区间后，，使得剩余所有元素的乘积未尾至少有k个0。小美想知道，一共有多少种不同的删除方案?
+小美拿到了一个大小为n的数组，她希望删除一个区间后，使得剩余所有元素的乘积未尾至少有k个0。小美想知道，一共有多少种不同的删除方案?
 
 **输入描述**
 第一行输入两个正整数n和 k。
@@ -166,6 +232,34 @@ MTUAN
 第二个方案，删除 [4]。
 第三个方案，删除 [3,4]。
 第四个方案，删除[2]。
+
+
+
+##### A4
+
+```python
+import sys
+
+n,k = map(int,sys.stdin.readline().split())
+array = list(map(int,sys.stdin.readline().split()))
+
+num_2,num_5 = [0]*(n+1),[0]*(n+1)
+for i,a in enumerate(array):
+    num_2[i+1],num_5[i+1]=num_2[i],num_5[i]
+    while a%2==0:
+        num_2[i+1]+=1
+        a//=2
+    while a%5==0:
+        num_5[i+1]+=1
+        a//=5
+
+left,res = 0,0
+for right in range(n):
+    while left<right and (num_2[n]-(num_2[right]-num_2[left])<k or num_5[n]-(num_5[right]-num_5[left])<k):
+        left+=1
+    res+=right-left
+print(res)
+```
 
 
 
@@ -222,6 +316,61 @@ NO
 第五次事件，此时1号无法再经过 2号和3号互相认识了。
 
 
+
+##### A5
+
+```python
+import sys
+
+n,m,q = map(int,sys.stdin.readline().split())
+
+s = set()
+for i in range(m):
+    u,v = map(int,sys.stdin.readline().split())
+    s.add((u,v))
+
+s_construct = s.copy()
+query = []
+for i in range(q):
+    op,u,v = map(int,sys.stdin.readline().split())
+    query.append((op,u,v))
+    if op == 1:
+        if (u,v) in s_construct:
+            s_construct.remove((u,v))
+        if (v,u) in s_construct:
+            s_construct.remove((v,u))
+            
+fa = [-1]*(n+1)
+csize = [1]*(n+1)
+
+def find(x):
+    if fa[x] == -1:
+        return x
+    fa[x] = find(fa[x])
+    return fa[x]
+
+def union(x,y):
+    x = find(x)
+    y = find(y)
+    if x == y:
+        return
+    if csize[x] < csize[y]:
+        x,y = y,x
+    fa[y] = x
+    csize[x] += csize[y]
+    
+for u,v in s_construct:
+    union(u,v)
+
+res = []
+for op,u,v in query[::-1]:
+    if op == 1:
+        if (u,v) in s or (v,u) in s:
+            union(u,v)
+    else:
+        res.append('YES' if find(u) == find(v) else 'NO')
+print('\n'.join(res[::-1]))
+```
 
 
 
