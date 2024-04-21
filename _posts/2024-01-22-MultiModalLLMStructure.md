@@ -30,9 +30,27 @@ tags:
 
 
 
+### BLIP
+
+<img src="http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2024-04-09%2010.32.43.png" alt="截屏2024-04-09 10.32.43" style="zoom:50%;" />
+
+BLIP的主要特点是结合了encoder和decoder，即形成了统一理解和生成（Understanding&Generation）的多模态模型。统一的动机在于encoder模型如CLIP没有生成器无法做VQA等生成任务，而如果用encoder-decoder框架无法做retrieval任务。因此BLIP很大的贡献在于MED（mixture of encoder-decoder）模块。从而使该模型既可以有理解能力（encoder），又可以有生成能力（decoder）。
+
+
+
+
+
 ### **BLIP-2**[^2][^6]
 
 ![截屏2024-01-22 10.20.42](http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2024-01-22%2010.20.42.png)
+
+而BLIP-2和Flamingo一样，用一个Qformer来提取图像特征（等同与Flamingo的perceiver resampler），然后用cross- attention进行多模态交互，此时视觉编码器和LLM都会被冻结，只训练Qformer，而在下游任务微调时，可以再解锁视觉编码器，让它跟Qformer一起训练，如下图所示。
+
+因此BLIP-2设计了两阶段的训练策略，以使视觉编码器能学会提取更关键的信息。
+
+第一阶段：使用多种预训练任务，如Image-Text Contrastive Learning，Image-grounded Text Generation，Image-Text Matching让Qformer学会如何从视觉编码器中抽取文本相关的特征。
+第二阶段，将Qformer插入到LLMs中，用language modeling进行训练。
+BLIP2的训练数据包括MSCOCO，Visual Genome，CC15M，SBU，115M来自于LAION400M的图片以及BLIP在web images上生成的描述。不过BLIP-2没有使用Flamingo那种图文交错的数据，因此它没有太强的in-context learning能力。
 
 
 

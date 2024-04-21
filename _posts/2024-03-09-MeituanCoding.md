@@ -374,13 +374,390 @@ print('\n'.join(res[::-1]))
 
 
 
+### 3.16 算法策略
+
+#### Q1
+
+**题目描述**
+
+小美是美团外卖的忠实用户，她经常去美团外卖 app上面点外卖，因为会员红包的性价比太高。现在小美点了若干道菜，她希望你计算一个订单的总价。你能帮帮她吗？
+
+**输入描述**
+
+第一行输入一个正整数n，代表菜品总数。
+
+第二行输入n个正整数ax，代表每道菜的价格。
+
+第三行输入两个正整数…和y，z代表满减的价格，g代表红包的价格。
+
+**输出描述**
+
+一个正整数，代表小美最终应付的钱数。
+
+**样例输入**
+
+```
+4
+10 20 10 20
+25 10
+```
+
+**输出**
+
+```
+25
+```
+
+##### A1
+
+```python
+n=int(input())
+ax=list(map(int,input().split()))
+x,y=map(int,input().split())
+print(sum(ax)-x-y)
+```
 
 
 
+#### Q2
+
+**题目描述**
+
+小美定义以下三种单词是合法的：
+
+1. ﻿﻿所有字母都是小写。例如：good
+2. ﻿﻿所有字母都是大写。例如：APP
+3. ﻿﻿第一个字母大写，后面所有字母都是小写。例如：Alice
+
+现在小美拿到了一个单词，她每次操作可以修改任意一个字符的大小写。小美根知道最少操作几次可以使得单词变成合法的？
+
+**输入描述**
+
+一个仅由大写字母和小写字母组成的字符串，长度不超过10^5
+
+**输出描述**
+
+一个整数，代表操作的最小次数。
+
+**样例输入**
+
+```
+AbC
+```
+
+**输出**
+
+```
+1
+```
 
 
 
+##### A2
+
+```python
+import sys
+
+s = str(sys.stdin.readline())
+n = len(s)
+up = 0
+for c in s:
+  if c.isupper():
+    up+=1
+return min(n-up,up-int(s[0].isupper()))
+# 最小只有两种情况(1)全改大写(2)尽量改成首字母大写
+```
 
 
 
+#### Q3
+
+**题目描述**
+
+小美拿到了一个数组，她每次操作会将除了第x个元素的其余元素翻倍，一共操作了q次。请你帮小美计算操作结束后所有元素之和。
+
+由于答案过大，请对10^9＋7取模。
+
+**输入描述**
+
+第一行输入两个正整数n，q，代表数组的大小和操作次数。
+
+第二行输入n个正整数a_i，代表数组的元素。
+
+接下来的q行，每行输入一个正整数x_i。代表第i次操作未被翻倍的元素。
+
+```
+1 ≤ n,q ≤ 10^5
+1 ≤ x_i ≤ n
+1 ≤ a_i ≤ 10^9
+```
+
+**输出描述**
+
+一个整数，代表操作结束后所有元素之和模10^9＋7的值。
+
+**样例输入**
+
+```
+4 2
+1 2 3 4
+1
+2
+```
+
+**输出**
+
+```
+34
+```
+
+##### A3
+
+```python
+# 快速幂也可以自己写，其实用内置pow就可以
+def mypow(base,n,mod):
+  res = 1
+  while n:
+    if n&1:
+      res=(res*base)%mod
+    base=(base*base)%mod
+    n>>=1
+  return res
+
+n,q = map(int,input().split())
+a = list(map(int,input().split()))
+mod = 10**9+7
+s = [q]*(n+1)
+for _ in range(q):
+  x = int(input())
+  s[x]-=1
+res = 0
+for i in range(n):
+  res+=(pow(2,s[i+1],mod)*a[i])%mod
+  res%mod
+print(res)
+```
+
+
+
+#### Q4
+
+**题目描述**
+
+小美拿到了一个数组，她希里你求出所有区间众数之和，你能帮帮她吗？
+
+定义区间的众数为出现次数最多的那个数，如果有多个数出现次数最多，那么众数是其中最小的那个数。
+
+**输入描述**
+
+第一行输入一个正整数n，代表数组的大小第二行输入n个正整数a_i。代表数组的元素
+
+```
+1 ≤ n ≤ 2×10^5
+1 ≤ a_i ≤ 2
+```
+
+**输出描述**
+
+一个正整数，代表所有区间的众数之和。
+
+**样例输入**
+
+```
+3
+2 1 2
+```
+
+**输出**
+
+```
+9
+```
+
+**说明**
+
+［2］,［2,1,2］,［2］的众数是 2
+
+［2,1］,［1］,［1,2］的众数是 1
+
+因此答案是 9.
+
+##### A4
+
+- mergesort法，详见Q5，不写了
+- 树状数组
+
+```python
+def lbt(x):
+  return x & -x
+def add(x,tr):
+  x+=n+1
+  while x<len(tr):
+    tr[x]+=1
+    x+=lbt(x)
+def get(left,right,tr):
+  left+=n
+  right+=n+1
+  res = 0
+  while right:
+    res+=tr[right]
+    right-=lbt(right)
+  while left:
+    res-=tr[left]
+    left-=lbt(left)
+  return res
+n=int(input())
+ax=list(map(int,input().split()))
+tr = [0]*(2*n+100)
+add(0,tr)
+pre,cnt = 0,0
+for a in ax:
+  if a==2:
+    pre+=1
+  else:
+    pre-=1
+  cnt+=get(-n,pre-1,tr)
+  add(pre,tr)
+cnt1 = (n+1)*n//2-cnt
+print(2*cnt+cnt1)
+```
+
+
+
+#### Q5
+
+**题目描述**
+
+小美拿到了一个排列，她定义f(i)为：将第i个元素取反后，形成的数组的逆序对数量。小美希望你求出f(1) 到 f(n)的值。排列是指一个长度为n的数组，1到n每个元素恰好出现了一次。
+
+**输入描述**
+
+第一行输入一个正整数n，代表排列的大小。
+
+第二行输入n个正整数ai，代表排列的元素。
+
+```
+1 ≤ n ≤ 2x10^5
+1 ≤ a_i ≤ n
+```
+
+**输出描述**
+
+输出n个整数，第i个整数是f(i)的值。
+
+**输入**
+
+```
+3
+1 2 3
+```
+
+**输出**
+
+```
+0 1 2
+```
+
+**说明**
+
+第一个元素取反，数组将变成［-1，2,3］，逆序对数量为 0.
+第二个元素取反，数组将变成［2，-2,3］，逆序对数量为1.
+第三个元素取反，数组将变成［2,2，-3］，逆序对数量为2.
+
+##### A5
+
+- mergesort yyds法
+
+```python
+from collections import defaultdict
+n=int(input())
+values=list(map(int,input().split()))
+pre, suf = defaultdict(int), defaultdict(int)
+# pre,suf 记录每一个数字前后小于它的数字个数
+
+def mergesort(l,r):
+  if r-l<1:
+    return 0
+  mi = (l+r)>>1
+  a = mergesort(l,mi)
+  b = mergesort(mi+1,r)
+  c = merge(l,mi,r)
+  return a+b+c
+
+def merge(l,mi,r):
+  a = values[l:mi+1]
+  b = values[mi+1:r+1]
+  pa,lena,pb,lenb,ind = 0,mi+1-l,0,r-mi,l
+  res = 0
+  resa,resb=0,0
+  while pa<lena and pb<lenb:
+    if a[pa]<=b[pb]:
+      values[ind]=a[pa]
+      suf[a[pa]]+=resb
+      resa+=1
+      pa+=1
+    else:
+      res+=lena-pa
+      values[ind]=b[pb]
+      pre[b[pb]]+=resa
+      resb+=1
+      pb+=1
+    ind+=1
+  while pa<lena:
+    values[ind]=a[pa]
+    suf[a[pa]]+=resb
+    resa+=1
+    pa+=1
+    ind+=1
+  while pb<lenb:
+    values[ind]=b[pb]
+    pre[b[pb]]+=resa
+    resb+=1
+    pb+=1
+    ind+=1
+  return res
+
+cop_values = values.copy()
+t = mergesort(0,n-1)
+for i,v in enumerate(cop_values):
+  print(t+pre[v]-suf[v],end=" ")
+```
+
+- 树状数组
+
+```python
+import sys
+
+def lbt(x):
+  return x & -x
+
+def add(x,tr):
+  while x<len(tr):
+    tr[x]+=1
+    x+=lbt(x)
+
+def get(x,tr):
+  res = 0
+  while x:
+    res+=tr[x]
+    x-=lbt(x)
+  return res
+
+n=int(input())
+values=list(map(int,input().split()))
+tmp = [0]*(n+1) # 存i-th之前大于的数+i-th之后小于的数（这部分要从res中减去）
+tr1,tr2 = [0]*(n+1),[0]*(n+1)
+res = 0
+for i,v in enumerate(values,1):
+  val=get(n,tr1)-get(v,tr1)
+  res+=val
+  tmp[i]=val
+  add(v,tr1)
+for i in range(n,0,-1):
+  tmp[i]+=get(values[i-1],tr2)
+  add(values[i-1],tr2)
+for i in range(1,n+1):
+  print(res-tmp[i]+i-1,end=" ")
+
+```
 

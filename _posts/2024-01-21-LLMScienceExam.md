@@ -52,11 +52,18 @@ MAP@3 （Mean Average Precision @3）
 - Retrieval
 - context（知识库）+ prompt（问题）+ option（选项）构成完整样本
 - train deberta-v3-large
+
+> ![截屏2024-03-20 11.07.48](http://kylinhub.oss-cn-shanghai.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2024-03-20%2011.07.48.png)
+
 - Inference
 
 #### Embedding
 
 sentence_transformers + gte-base
+
+> 使用方法在这里：https://huggingface.co/thenlper/gte-base
+>
+> 参数量大概120m
 
 #### RAG
 
@@ -66,7 +73,7 @@ query文本：三次prompt+ABCDE拼接
 
 #### Train
 
-300k样本
+300k 样本
 
 #### Inference
 
