@@ -245,7 +245,7 @@ Q-Former 分两个阶段进行预训练。第一阶段，图像编码器被冻�
 
 
 
-### InstructBLIP：指令微调大杀四方
+### InstructBLIP：两层次指令微调
 
 InstructBLIP 可以理解为是 BLIP2 + 指令微调
 
