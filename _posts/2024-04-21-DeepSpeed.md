@@ -14,10 +14,17 @@ tags:
 
 [TOC]
 
+### 
+
+
+
+Parameter Server
+
 
 
 
 
 ### Reference
 
-[^1]: 
+[^1]: 从啥也不会到DeepSpeed：一篇大模型分布式训练的学习过程总结。https://zhuanlan.zhihu.com/p/688873027
+
